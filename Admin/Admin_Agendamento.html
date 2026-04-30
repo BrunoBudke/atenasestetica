@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <title>Admin – Agendamentos | Atenas</title>
+</head>
+<body>
+
+<!-- ══ LOGIN ══ -->
+<div id="tela-login">
+    <div class="login-box">
+        <span class="login-logo">Atenas</span>
+        <small class="login-sub">Painel Administrativo</small>
+        <h2>Acesso restrito</h2>
+        <div class="login-campo">
+            <label>Usuário</label>
+            <input type="text" id="login-user" placeholder="admin" autocomplete="off">
+        </div>
+        <div class="login-campo">
+            <label>Senha</label>
+            <input type="password" id="login-pass" placeholder="••••••">
+        </div>
+        <button class="btn-login" onclick="fazerLogin()">Entrar <i class="fas fa-arrow-right"></i></button>
+        <p class="login-erro" id="login-erro"><i class="fas fa-exclamation-circle"></i> Usuário ou senha incorretos.</p>
+    </div>
+</div>
+
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <span>Atenas</span>
+        <small>Clínica Estética</small>
+    </div>
+    <nav class="sidebar-nav">
+        <a class="nav-item ativo" onclick="mudarPagina('dashboard',this)">
+            <i class="fas fa-th-large"></i> Dashboard
+        </a>
+        <a class="nav-item" onclick="mudarPagina('novo-agendamento',this)">
+            <i class="fas fa-calendar-plus"></i> Novo Agendamento
+        </a>
+        <a class="nav-item" onclick="mudarPagina('agendamentos',this)">
+            <i class="fas fa-calendar-alt"></i> Agendamentos
+        </a>
+        <a class="nav-item" onclick="mudarPagina('colaboradores',this)">
+            <i class="fas fa-users"></i> Colaboradores
+        </a>
+    </nav>
+    <div class="sidebar-user">
+        <div class="user-avatar">A</div>
+        <div class="user-info">
+            <strong>Admin</strong>
+            <span>Administrador</span>
+        </div>
+        <button class="btn-sair" title="Sair" onclick="sair()"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<main class="main">
+
+    <!-- DASHBOARD -->
+    <div class="page ativa" id="page-dashboard">
+        <div class="page-header">
+            <h1>Dashboard</h1>
+            <p>Visão geral dos agendamentos de hoje</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card" style="--cor:var(--verde)">
+                <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                <h3 id="stat-total">0</h3>
+                <p>Total de Agendamentos</p>
+            </div>
+            <div class="stat-card" style="--cor:var(--ouro)">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <h3 id="stat-pendentes">0</h3>
+                <p>Pendentes</p>
+            </div>
+            <div class="stat-card" style="--cor:var(--sucesso)">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <h3 id="stat-confirmados">0</h3>
+                <p>Confirmados</p>
+            </div>
+            <div class="stat-card" style="--cor:var(--lavanda)">
+                <div class="stat-icon"><i class="fas fa-user-friends"></i></div>
+                <h3 id="stat-colabs">0</h3>
+                <p>Colaboradoras</p>
+            </div>
+        </div>
+
+        
+        <div class="tabela-wrap">
+            <div class="tabela-header">
+                <h2>Próximos Agendamentos</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente / Pacote</th>
+                        <th>Procedimento</th>
+                        <th>Colaboradora</th>
+                        <th>Data & Hora</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-dash"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- NOVO AGENDAMENTO -->
+    <div class="page" id="page-novo-agendamento">
+        <div class="page-header">
+            <h1>Novo Agendamento</h1>
+            <p>Preencha os dados para registrar um agendamento</p>
+        </div>
+
+        <div class="form-card">
+            <h2><i class="fas fa-user"></i> Dados do Cliente</h2>
+            <div class="form-grid">
+                <div class="campo">
+                    <label>Nome Completo *</label>
+                    <input type="text" id="f-nome" placeholder="Nome da cliente">
+                </div>
+                <div class="campo">
+                    <label>Telefone / WhatsApp *</label>
+                    <input type="tel" id="f-tel" placeholder="(00) 00000-0000">
+                </div>
+                <div class="campo">
+                    <label>E-mail</label>
+                    <input type="email" id="f-email" placeholder="email@exemplo.com">
+                </div>
+                <div class="campo">
+                    <label>Tipo de Atendimento</label>
+                    <select id="f-tipo" onchange="alterarTipo()">
+                        <option value="">Selecionar…</option>
+                        <option value="individual">Individual (procedimento avulso)</option>
+                        <option value="pacote">Pacote</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h2><i class="fas fa-spa"></i> Procedimento</h2>
+            <div class="form-grid">
+                <div class="campo">
+                    <label>Categoria</label>
+                    <select id="f-categoria" onchange="carregarProcedimentos()">
+                        <option value="">Selecionar categoria…</option>
+                        <option value="corporal">Tratamentos Corporais</option>
+                        <option value="facial">Tratamentos Faciais</option>
+                        <option value="ritual">Rituais das Deusas</option>
+                        <option value="capilar">Terapias Capilares</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label>Procedimento *</label>
+                    <select id="f-procedimento">
+                        <option value="">Selecione a categoria primeiro…</option>
+                    </select>
+                </div>
+            </div>
+
+            
+            <div id="bloco-pacotes" style="display:none">
+                <div class="form-grid um" style="margin-top:16px">
+                    <div class="separador">Selecionar Pacote</div>
+                    <div class="tags-pacotes" id="tags-pacotes"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h2><i class="fas fa-calendar"></i> Data, Hora & Colaboradora</h2>
+            <div class="form-grid tres">
+                <div class="campo">
+                    <label>Data *</label>
+                    <input type="date" id="f-data">
+                </div>
+                <div class="campo">
+                    <label>Horário *</label>
+                    <input type="time" id="f-hora">
+                </div>
+                <div class="campo">
+                    <label>Colaboradora *</label>
+                    <select id="f-colaboradora">
+                        <option value="">Selecionar…</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label>Status</label>
+                    <select id="f-status">
+                        <option value="pendente">Pendente</option>
+                        <option value="confirmado">Confirmado</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label>Valor (R$)</label>
+                    <input type="text" id="f-valor" placeholder="0,00">
+                </div>
+                <div class="campo">
+                    <label>Duração</label>
+                    <input type="text" id="f-duracao" placeholder="ex: 60 min">
+                </div>
+                <div class="campo full">
+                    <label>Observações</label>
+                    <textarea id="f-obs" placeholder="Informações adicionais, alergias, preferências…"></textarea>
+                </div>
+            </div>
+            <div class="form-acoes">
+                <button class="btn-salvar" onclick="salvarAgendamento()">
+                    <i class="fas fa-save"></i> Salvar Agendamento
+                </button>
+                <button class="btn-limpar" onclick="limparForm()">Limpar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page" id="page-agendamentos">
+        <div class="page-header">
+            <h1>Agendamentos</h1>
+            <p>Gerencie todos os agendamentos</p>
+        </div>
+        <div class="tabela-wrap">
+            <div class="tabela-header">
+                <h2>Todos os Registros</h2>
+                <div class="busca-wrap">
+                    <i class="fas fa-search"></i>
+                    <input class="busca-input" type="text" id="busca-input" placeholder="Buscar cliente…" oninput="filtrarTabela()">
+                    <select class="filtro-sel" id="filtro-status" onchange="filtrarTabela()">
+                        <option value="">Todos os status</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="confirmado">Confirmado</option>
+                        <option value="concluido">Concluído</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente / Pacote</th>
+                        <th>Procedimento</th>
+                        <th>Colaboradora</th>
+                        <th>Data & Hora</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-agendamentos"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COLABORADORES -->
+    <div class="page" id="page-colaboradores">
+        <div class="page-header">
+            <h1>Colaboradoras</h1>
+            <p>Equipe de profissionais</p>
+        </div>
+        <div class="colab-grid" id="colab-grid"></div>
+    </div>
+
+</main>
+
+
+<div class="modal-overlay" id="modal-del">
+    <div class="modal">
+        <h3>Excluir agendamento?</h3>
+        <p style="font-size:14px;color:var(--cinza);line-height:1.6">Esta ação não pode ser desfeita. Deseja continuar?</p>
+        <div class="modal-acoes">
+            <button class="btn-modal-cancel" onclick="fecharModal()">Cancelar</button>
+            <button class="btn-modal-confirm" onclick="confirmarExclusao()"><i class="fas fa-trash"></i> Excluir</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-msg">Salvo com sucesso!</span>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

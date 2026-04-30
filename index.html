@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Spa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Athena Spa</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <img src="./Logos/Atenas_logo_horiz1.png" alt="Logo" class="logo-img">
+            </div>
+        </div>
+
+        <nav class="navegacao">
+    <a href="#" class="nav-link">Home</a>
+    <div class="dropdown">
+        <a href="#" class="nav-link">Menu</a>
+        <div class="dropdown-content">
+            <a href="./Pagina_Serviços/Servicos.html">Tratamentos Corporais</a>
+            <a href="./Tratamentos_Faciais/Tratamentos.html">Tratamentos Faciais</a>
+            <a href="./Ritual_Deusas/Rituais_Deusas.html">Rituais das Deusas</a>
+            <a href="./Tratamentos_Capilares/Capilar.html">Terapias Capilares</a>
+        </div>
+    </div>
+    <a href="/Pacotes/pacotes.html" class="nav-link">Pacotes</a>
+    <a href="#videos-spa" class="nav-link">Vídeos</a>
+    <a href="#ebook-download" class="nav-link">E-book</a>
+    <a href="#contato" class="nav-link">Contato</a>
+    <a href="https://wa.me/554195996832" class="btn-contato">Agendar Agora</a>
+        </nav>
+    </header>
+
+    <section class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <p class="subtitle">O autocuidado é um ritual</p>
+            <h1>Sinta a <span class="destaque-script">calma</span><br>em cada detalhe</h1>
+        </div>
+    </section>
+
+    <section class="secao-frase">
+        <div class="container-frase">
+            <span class="detalhe-script">Momento de paz</span>
+            <h2>"A beleza começa no momento em que você decide ser você mesma."</h2>
+            <p>— Coco Chanel</p>
+        </div>
+    </section>
+
+    <section id="videos-spa" class="secao-videos">
+        <div class="titulo-secao">
+            <span class="subtitle">Experiência Atenas</span>
+            <h2>Conheça nosso refúgio</h2>
+        </div>
+        <div class="grid-videos">
+            <div class="video-item">
+                <video controls poster="capa-video1.jpg">
+                    <source src="video-spa-1.mp4" type="video/mp4">
+                </video>
+                <h3>Ambiente Relaxante</h3>
+            </div>
+            <div class="video-item">
+                <video controls poster="capa-video2.jpg">
+                    <source src="video-spa-2.mp4" type="video/mp4">
+                </video>
+                <h3>Tratamentos Exclusivos</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="ebook-download" class="secao-ebook">
+        <div class="container-ebook">
+            <div class="ebook-info">
+                <span class="subtitle">Download Gratuito</span>
+                <h2>Equilíbrio & Bem-estar</h2>
+                <p>Um guia prático com rituais de autocuidado para transformar sua rotina diária em um momento de puro relaxamento.</p>
+                <div class="ebook-visual">
+                    <div class="ebook-capa">
+                        <span class="capa-titulo">Guia de Bem-estar</span>
+                        <span class="capa-logo">Atena</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ebook-form-wrapper">
+                <div class="janela-decorada">
+                    <div class="decor-box">
+                        <h3>Garanta sua cópia</h3>
+                        <p>Informe seu melhor e-mail para receber o acesso instantâneo.</p>
+                        <form>
+                            <div class="campo-grupo">
+                                <label>Nome Completo</label>
+                                <input type="text" placeholder="Como quer ser chamado?" required>
+                            </div>
+                            <div class="campo-grupo">
+                                <label>E-mail Pessoal</label>
+                                <input type="email" placeholder="exemplo@email.com" required>
+                            </div>
+                            <button type="submit" class="btn-ebook">Baixar E-book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="secao-contato">
+        <div class="container-contato">
+            <div class="contato-info">
+                <h2 class="contato-titulo">Atenas Clinica Estética | <span class="local-destaque">Centro De Matinhos</span></h2>
+                
+                <div class="contato-item">
+                    <h3>Horário de Funcionamento:</h3>
+                    <p><strong>Segunda a Sábado</strong> das 9h às 20h</p>
+                    <p><strong>Domingo</strong> das 14h às 20h</p>
+                </div>
+
+                <div class="contato-item">
+                    <h3>Endereço no:</h3>
+                    <p>Av. , 000 – Centro - Matinhos,</p>
+                    <p>Matinhos – PR, 00000-000</p>
+                </div>
+
+                <div class="contato-item">
+                    <h3>Telefones:</h3>
+                    <p>(55) 0000 – 0000</p>
+                    <p>(55) 00000 – 0000</p>
+                </div>
+
+                <div class="redes-sociais">
+                    <a href="https://wa.me/554195996832" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/athenaspa" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/athenaspa" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="contato-mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57482.95774772994!2d-48.55782593353242!3d-25.780970760419002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dbee2def8620f1%3A0xe1f069c76f033955!2sMatinhos%2C%20PR%2C%2083260-000!5e0!3m2!1spt-BR!2sbr!4v1774324753083!5m2!1spt-BR!2sbr" 
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape-simples">
+        <p>© 2026 Atenas Clinica Estética - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

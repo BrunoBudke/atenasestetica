@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 140px;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+    width: 320px;
+    height: 140px;
+    object-fit: contain;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nome-site {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #5bb2a7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.navegacao {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover { color: #5bb2a7; }
+
+.dropdown { position: relative; display: inline-block; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: #555;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f9fbfb;
+    color: #5bb2a7;
+    padding-left: 25px;
+}
+
+.btn-contato {
+    background-color: #5bb2a7;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-contato:hover {
+    background-color: #4a9e94;
+    transform: translateY(-2px);
+}
+
+
+.secao-tratamentos-corporais {
+    padding: 280px 80px 80px;
+    background-color: #eef3f0;
+    min-height: 100vh;
+}
+
+.tratamentos-intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 70px;
+}
+
+.subtitle-tratamentos {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: #5bb2a7;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.titulo-tratamentos-corporais {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #9a7b2e;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.linha-decorativa {
+    width: 60px;
+    height: 2px;
+    background-color: #d4af37;
+    margin: 24px auto;
+}
+
+.subtitulo-pele {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    color: #2c3e50;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.descricao-tratamentos {
+    font-size: 17px;
+    color: #444;
+    line-height: 1.9;
+    font-weight: 400;
+}
+
+
+.cards-tratamentos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card-tratamento {
+    background-color: white;
+    border-radius: 16px;
+    padding: 32px 32px 36px;
+    border: 1px solid #ece8e0;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tratamento::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #5bb2a7, #d4af37);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.card-tratamento:hover {
+    box-shadow: 0 12px 40px rgba(91, 178, 167, 0.15);
+    transform: translateY(-4px);
+    border-color: #c8e6e3;
+}
+
+.card-tratamento:hover::before {
+    transform: scaleX(1);
+}
+
+.card-foto {
+    width: 100%;
+    height: 200px;
+    background-color: #edf0ee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+}
+
+.card-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card-tratamento:hover .card-foto img {
+    transform: scale(1.04);
+}
+
+.card-texto {
+    padding: 0 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.card-descricao {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.8;
+    font-weight: 300;
+    flex: 1;
+}
+
+
+.card-preco {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed #e8e2d8;
+}
+
+.preco-label {
+    font-size: 11px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.preco-valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #5bb2a7;
+}
+
+.duracao-procedimento {
+    display: inline-block;
+    align-items: center;
+    gap: 5px;
+    font-size: large;
+    color: #4a9e94;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background-color: #eef3f0;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.duracao-procedimento::before {
+    content: '⏱';
+    font-size: 25px;
+
+}
+
+/* Botão Pacote*/
+.container-consultar-pacote {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #e8e2d8;
+}
+
+.btn-consultar-pacote {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 28px;
+    border: 1.5px solid #5bb2a7;
+    border-radius: 50px;
+    background-color: transparent;
+    color: #5bb2a7;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-consultar-pacote:hover {
+    background-color: #5bb2a7;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(91, 178, 167, 0.25);
+}
+
+
+@media (max-width: 1280px) {
+    .cards-tratamentos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .cards-tratamentos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho {
+        padding: 15px 20px;
+    }
+    .logo-img {
+        width: 150px;
+        height: 90px;
+    }
+    .secao-tratamentos-corporais {
+        padding: 120px 20px 60px;
+    }
+    .cards-tratamentos {
+        grid-template-columns: 1fr;
+    }
+    .titulo-tratamentos-corporais {
+        font-size: 32px;
+    }
+    .subtitulo-pele {
+        font-size: 22px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.card-pacotes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed #e8e2d8;
+}
+
+.pacote-item {
+    font-size: 12px;
+    color: #9a7b2e;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}

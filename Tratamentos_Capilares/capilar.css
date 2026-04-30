@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 140px;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+    width: 320px;
+    height: 140px;
+    object-fit: contain;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navegacao {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+.nav-link:hover { color: aqua;}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width:220px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: #555;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f9f9f9;
+    color: aqua;
+    padding-left: 25px;
+}
+
+.btn-contato {
+    background-color: #5bb2a7;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn-contato:hover {
+    background-color: #4a9e94;
+    transform: translateY(-2px);
+}
+
+.secao-tratamentos-capilares {
+    padding: 280px 80px 80px;
+    background-color: #eef3f0;
+    min-height: 100vh;
+}
+
+.tratamentos-intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 70px;
+}
+
+.subtitle-tratamentos {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: #5bb2a7;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+
+.titulo-tratamentos-capilares {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #9a7b2e;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.linha-decorativa {
+    width: 60px;
+    height: 2px;
+    background-color: #9a7b2e;
+    margin: 24px auto;
+}
+
+.subtitulo-capilar {
+    font-size: 17px;
+    color: #444;
+    line-height: 1.9;
+    font-weight: 400;
+}
+
+.descricao-tratamentos {
+    font-size: 17px;
+    color: #444;
+    line-height: 1.9;
+    font-weight: 400;
+}
+
+.cards-tratamentos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card-tratamento {
+    background-color: white;
+    border-radius: 16px;
+    padding: 32px 32px 36px;
+    border: 1px solid #457945;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-tratamento:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #5bb2a7, #9a7b2e);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.card-tratamento:hover {
+    box-shadow: 0 12px 40px rgba(91, 178, 167, 0.15);
+    transform: translateY(-4px);
+    border-color: #c8e6e3;
+}
+
+.card-tratamento:hover::before {
+    transform: scaleX(1);
+}
+
+.card-foto {
+    width: 100%;
+    height: 200px;
+    background-color: #edf0ee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+}
+
+.card-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.card-tratamento:hover .card-foto img {
+    transform: scale(1.04);
+}
+
+.card-texto {
+    padding: 0 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card--nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #4a9e94;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.card-descricao {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.8;
+    font-weight: 300;
+    flex: 1;
+}
+
+.card-indicacao, .card-beneficios {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-top: 12px;
+}
+
+.card-beneficios {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-preco {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed #e8e2d8;
+}
+
+
+.preco-label {
+    font-size: 11px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.preco-valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #9a7b2e;
+    font-weight: 700;
+}
+
+.duracao-proccedimento {
+    text-align: right;
+    font-size: 20px;
+    color: #de8220;
+    padding-left: 1px;
+}
+
+@media (max-width: 1280px) {
+    .cards-tratamentos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .cards-tratamentos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho {
+        padding: 15px 20px;
+    }
+    .logo-img {
+        width: 150px;
+        height: 90px;
+    }
+    .secao-tratamentos-capilares {
+        padding: 120px 20px 60px;
+    }
+    .cards-tratamentos {
+        grid-template-columns: 1fr;
+    }
+    .titulo-tratamentos-capilares {
+        font-size: 32px;
+    }
+    .subtitulo-capilar {
+        font-size: 22px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-pacotes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed #e8e2d8;
+}
+
+.pacote-item {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.8;
+    font-weight: 300;
+}
+

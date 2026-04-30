@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="pacotes.css">
+    <title>Pacotes | Atenas Clínica Estética</title>
+</head>
+<body>
+
+<header class="cabecalho">
+    <div class="logo-container">
+        <img src="/Logos/Atenas_logo_horiz1.png" alt="Atenas Clínica Estética" class="logo-img">
+    </div>
+    <nav class="navegacao">
+        <a href="../Spa.html" class="nav-link">Home</a>
+        <div class="dropdown">
+            <a href="/Spa.html" class="nav-link">Menu</a>
+            <div class="dropdown-content">
+                <a href="/Pagina_Serviços/Servicos.html">Tratamentos Corporais</a>
+                <a href="/Tratamentos_Faciais/Tratamentos.html">Tratamentos Faciais</a>
+                <a href="/Ritual_Deusas/Rituais_Deusas.html">Rituais das Deusas</a>
+                <a href="/Tratamentos_Capilares/Capilar.html">Terapias Capilares</a>
+            </div>
+        </div>
+        <a href="pacotes.html" class="nav-link" style="color:var(--verde);font-weight:600">Pacotes</a>
+        <a href="./Spa.html#videos-spa"     class="nav-link">Vídeos</a>
+        <a href="./Spa.html#ebook-download" class="nav-link">E-book</a>
+        <a href="./Spa.html#contato"        class="nav-link">Contato</a>
+        <a href="https://wa.me/554195996832" target="_blank" class="btn-contato">Agendar Agora</a>
+    </nav>
+</header>
+
+
+<section class="hero-pacotes">
+    <div class="hero-orbe o1"></div>
+    <div class="hero-orbe o2"></div>
+    <div class="hero-texto">
+        <span class="chip">Atenas Clínica Estética</span>
+        <h1>Nossos <em>Pacotes</em><br>de Tratamentos</h1>
+        <p>Escolha um pacote, personalize os procedimentos que deseja incluir e agende diretamente pelo WhatsApp.</p>
+    </div>
+</section>
+
+
+<div class="filtros-wrap">
+    <span class="filtro-label">Filtrar:</span>
+    <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Todos</button>
+    <button class="btn-filtro" onclick="filtrar('corporal', this)">Corporais</button>
+    <button class="btn-filtro" onclick="filtrar('facial', this)">Faciais</button>
+    <button class="btn-filtro" onclick="filtrar('ritual', this)">Rituais das Deusas</button>
+    <button class="btn-filtro" onclick="filtrar('capilar', this)">Capilares</button>
+</div>
+
+
+<!--  Corporais  -->
+<section class="secao-pacotes secao-grupo" data-cat="corporal">
+    <div class="secao-titulo cat-corporal">
+        <div class="txt">
+            <h2>Pacotes Corporais</h2>
+            <p>Tratamentos para corpo, modelagem e bem-estar</p>
+        </div>
+    </div>
+    <div class="grid-pacotes">
+
+        <div class="card-pacote cat-corporal" data-cat="corporal" data-nome="Pacote Massagem — 4 Sessões" data-desc="Ideal para quem busca relaxamento contínuo e alívio de tensões musculares ao longo do mês.">
+            <div class="card-topo">
+                <div class="card-categoria cat-corporal">Corporal</div>
+                <h3 class="card-nome">Pacote Massagem — 4 Sessões</h3>
+                <p class="card-descricao">Ideal para quem busca relaxamento contínuo e alívio de tensões musculares ao longo do mês.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-corporal">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+        <div class="card-pacote cat-corporal" data-cat="corporal" data-nome="Pacote Drenagem — 6 Sessões" data-desc="Protocolo completo de drenagem linfática para redução de medidas e combate à retenção hídrica.">
+            <div class="card-topo">
+                <div class="card-categoria cat-corporal">Corporal</div>
+                <h3 class="card-nome">Pacote Drenagem — 6 Sessões</h3>
+                <p class="card-descricao">Protocolo completo de drenagem linfática para redução de medidas e combate à retenção hídrica.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-corporal">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+        <div class="card-pacote cat-corporal destaque" data-cat="corporal" data-nome="Pacote Corporal Completo" data-desc="O melhor do tratamento corporal em um único pacote: modelagem, redução de medidas e hidratação profunda.">
+            <span class="card-badge-dest">Mais Completo</span>
+            <div class="card-topo">
+                <div class="card-categoria cat-corporal">Corporal</div>
+                <h3 class="card-nome">Pacote Corporal Completo</h3>
+                <p class="card-descricao">O melhor do tratamento corporal em um único pacote: modelagem, redução de medidas e hidratação profunda.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-corporal">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--  Facial  -->
+<section class="secao-pacotes secao-grupo" data-cat="facial">
+    <div class="secao-titulo cat-facial">
+        <div class="txt">
+            <h2>Pacotes Faciais</h2>
+            <p>Tratamentos para pele, beleza e rejuvenescimento</p>
+        </div>
+    </div>
+    <div class="grid-pacotes">
+
+        <div class="card-pacote cat-facial" data-cat="facial" data-nome="Pacote Limpeza — 4 Sessões" data-desc="Mantenha sua pele limpa e saudável com limpezas mensais personalizadas para o seu tipo de pele.">
+            <div class="card-topo">
+                <div class="card-categoria cat-facial">Facial</div>
+                <h3 class="card-nome">Pacote Limpeza — 4 Sessões</h3>
+                <p class="card-descricao">Mantenha sua pele limpa e saudável com limpezas mensais personalizadas para o seu tipo de pele.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-facial">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+        <div class="card-pacote cat-facial" data-cat="facial" data-nome="Pacote Rejuvenescimento" data-desc="Protocolo focado em estimular o colágeno, suavizar rugas e devolver luminosidade à pele.">
+            <div class="card-topo">
+                <div class="card-categoria cat-facial">Facial</div>
+                <h3 class="card-nome">Pacote Rejuvenescimento</h3>
+                <p class="card-descricao">Protocolo focado em estimular o colágeno, suavizar rugas e devolver luminosidade à pele.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-facial">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+        <div class="card-pacote cat-facial destaque" data-cat="facial" data-nome="Pacote Anti-idade Premium" data-desc="O protocolo mais completo para combater o envelhecimento com tecnologia avançada e ativos de alta performance.">
+            <span class="card-badge-dest">Premium</span>
+            <div class="card-topo">
+                <div class="card-categoria cat-facial">Facial</div>
+                <h3 class="card-nome">Pacote Anti-idade Premium</h3>
+                <p class="card-descricao">O protocolo mais completo para combater o envelhecimento com tecnologia avançada e ativos de alta performance.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-facial">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--Rituais  -->
+<section class="secao-pacotes secao-grupo" data-cat="ritual">
+    <div class="secao-titulo cat-ritual">
+        <div class="txt">
+            <h2>Pacotes — Rituais das Deusas</h2>
+            <p>Experiências sensoriais completas e imersivas</p>
+        </div>
+    </div>
+    <div class="grid-pacotes">
+
+        <div class="card-pacote cat-ritual" data-cat="ritual" data-nome="Pacote 2 Rituais à Escolha" data-desc="Escolha 2 rituais dentre Afrodite, Ártemis, Perséfone, Atena ou Hera e viva experiências únicas no seu ritmo.">
+            <div class="card-topo">
+                <div class="card-categoria cat-ritual">Ritual</div>
+                <h3 class="card-nome">Pacote 2 Rituais à Escolha</h3>
+                <p class="card-descricao">Escolha 2 rituais dentre Afrodite, Ártemis, Perséfone, Atena ou Hera e viva experiências únicas no seu ritmo.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Rituais selecionados</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-ritual">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Escolher Rituais
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+        <div class="card-pacote cat-ritual destaque" data-cat="ritual" data-nome="Pacote das Deusas — Completo" data-desc="A experiência máxima de bem-estar. Todos os 5 rituais para viver cada deusa em sua plenitude.">
+            <span class="card-badge-dest">Exclusivo</span>
+            <div class="card-topo">
+                <div class="card-categoria cat-ritual">Ritual</div>
+                <h3 class="card-nome">Pacote das Deusas — Completo</h3>
+                <p class="card-descricao">A experiência máxima de bem-estar. Todos os 5 rituais para viver cada deusa em sua plenitude.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Rituais selecionados</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-ritual">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Escolher Rituais
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Capilar -->
+<section class="secao-pacotes secao-grupo" data-cat="capilar" style="padding-bottom:100px">
+    <div class="secao-titulo cat-capilar">
+        <div class="txt">
+            <h2>Pacotes Capilares</h2>
+            <p>Revitalização e saúde dos fios e couro cabeludo</p>
+        </div>
+    </div>
+    <div class="grid-pacotes">
+
+        <div class="card-pacote cat-capilar" data-cat="capilar" data-nome="Pacote 6 Sessões Capilares" data-desc="Protocolo contínuo de 6 sessões para tratamento da queda capilar e fortalecimento dos fios.">
+            <div class="card-topo">
+                <div class="card-categoria cat-capilar">Capilar</div>
+                <h3 class="card-nome">Pacote 6 Sessões Capilares</h3>
+                <p class="card-descricao">Protocolo contínuo de 6 sessões para tratamento da queda capilar e fortalecimento dos fios.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-capilar">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+        <div class="card-pacote cat-capilar destaque" data-cat="capilar" data-nome="Pacote Crescimento Capilar" data-desc="Combinação de técnicas avançadas para estimular o crescimento, densificar os fios e tratar a alopecia.">
+            <span class="card-badge-dest">Recomendado</span>
+            <div class="card-topo">
+                <div class="card-categoria cat-capilar">Capilar</div>
+                <h3 class="card-nome">Pacote Crescimento Capilar</h3>
+                <p class="card-descricao">Combinação de técnicas avançadas para estimular o crescimento, densificar os fios e tratar a alopecia.</p>
+            </div>
+            <div class="card-itens">
+                <h4>Procedimentos do pacote</h4>
+                <div class="card-procs-selecionados"></div>
+            </div>
+            <div class="card-rodape">
+                <div class="preco-bloco">
+                    <span class="preco-de">A partir de</span>
+                    <span class="preco-val preco-capilar">R$ —</span>
+                    <span class="preco-parc">a definir</span>
+                </div>
+                <button class="btn-personalizar" onclick="abrirModal(this)">
+                    <i class="fas fa-sliders-h"></i> Personalizar
+                </button>
+                <a href="#" class="btn-agendar btn-agendar-card" onclick="agendarCard(event, this)">
+                    <i class="fab fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<div class="painel-selecao" id="painelSelecao">
+    <div class="painel-inner">
+        <div class="painel-info">
+            <p class="painel-titulo">✦ Pacotes selecionados</p>
+            <div class="painel-chips" id="painelChips">
+                <span class="chip-vazio">Nenhum pacote selecionado ainda</span>
+            </div>
+            <p class="painel-contador" id="painelContador">0 de 4 pacotes</p>
+        </div>
+        <div class="painel-acoes">
+            <button class="btn-painel-limpar" onclick="limparSelecao()">Limpar</button>
+            <button class="btn-painel-agendar" id="btnAgendar" onclick="agendarSelecionados()" disabled>
+                <i class="fab fa-whatsapp"></i> Agendar Selecionados
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-overlay" id="modalOverlay" onclick="fecharModalFora(event)">
+    <div class="modal-caixa" id="modalCaixa">
+        <div class="modal-header">
+            <div class="modal-header-txt">
+                <span class="modal-cat" id="modalCat"></span>
+                <h2 id="modalTitulo"></h2>
+                <p id="modalDesc"></p>
+            </div>
+            <button class="modal-fechar" onclick="fecharModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-instrucao">
+            <i class="fas fa-hand-pointer"></i>
+            <span>Clique nos procedimentos abaixo para incluir ou remover do seu pacote</span>
+        </div>
+        <div class="modal-corpo" id="modalCorpo">
+            <!--JS -->
+        </div>
+        <div class="modal-rodape">
+            <div class="modal-resumo">
+                <strong id="modalContador">0 procedimento(s)</strong>
+                <span id="modalNomesSel">Nenhum selecionado</span>
+            </div>
+            <div class="modal-acoes">
+                <button class="btn-modal-cancelar" onclick="fecharModal()">Cancelar</button>
+                <button class="btn-modal-confirmar" id="btnConfirmarModal" onclick="confirmarModal()">
+                    <i class="fas fa-check"></i> Confirmar seleção
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="rodape">
+    <p>© 2026 Atenas Clínica Estética — Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
+<script src="/Pacotes/pacotes.js"></script>

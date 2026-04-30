@@ -1,0 +1,535 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #faf8f5;
+    color: #2c2c2a;
+}
+
+
+h1 {
+    font-size: 64px;
+    color: rgb(16, 81, 81);
+    text-align: center;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding-top: 60px;
+    line-height: 1.1;
+}
+
+.subtitulo {
+    font-size: 18px;
+    text-align: center;
+    color: #8a7a6a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 16px;
+}
+
+.descricao {
+    font-size: 17px;
+    text-align: center;
+    color: #5a5a52;
+    max-width: 620px;
+    margin: 20px auto 0;
+    line-height: 1.8;
+    padding: 0 20px;
+}
+
+/* Seção de Rituais */
+.secao-rituais {
+    padding-top: 180px !important;
+}
+
+.ritual-section {
+    max-width: 900px;
+    margin: 80px auto 60px;
+    padding: 0 20px;
+}
+
+.ritual-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.ritual-header h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.ritual-header .ritual-descricao {
+    font-size: 16px;
+    color: #8a7a6a;
+    font-style: italic;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.ritual-foto {
+    width: 100%;
+    height: 420px;
+    margin: 30px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #d9cfc4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ritual-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ritual-detalhes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.ritual-etapas {
+    flex: 1;
+    min-width: 220px;
+}
+
+.ritual-etapas h3 {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8a7a6a;
+    margin-bottom: 14px;
+}
+
+.ritual-etapas ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.ritual-etapas ul li {
+    font-size: 15px;
+    color: #3a3a32;
+    padding: 8px 0;
+    border-bottom: 0.5px solid #e0d8d0;
+    line-height: 1.5;
+}
+
+.ritual-etapas ul li:last-child {
+    border-bottom: none;
+}
+
+.ritual-valor {
+    text-align: right;
+    min-width: 180px;
+}
+
+.ritual-valor .duracao {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8a7a6a;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.ritual-valor .preco {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.ritual-valor .preco-label {
+    font-size: 12px;
+    color: #8a7a6a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+}
+
+
+/* Botão Consultar \*/
+.container-do-produto {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.btn-pacotes {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pacotes::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    border-radius: 50px;
+}
+
+.btn-pacotes:hover::before {
+    opacity: 1;
+}
+
+.btn-pacotes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+.btn-icone {
+    font-size: 14px;
+    transition: transform 0.35s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-pacotes:hover .btn-icone {
+    transform: scale(1.25) rotate(15deg);
+}
+
+.btn-pacotes span:not(.btn-icone) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Afrodite — rosa quente, borda elegante */
+.afrodite-btn {
+    background-color: transparent;
+    color: #b5547a;
+    border: 2px solid #b5547a;
+}
+.afrodite-btn::before {
+    background-color: #b5547a;
+}
+.afrodite-btn:hover {
+    color: #ffffff;
+    border-color: #b5547a;
+}
+
+/* Ártemis — verde floresta, fundo sólido natural */
+.artemis-btn {
+    background-color: #3b6e3f;
+    color: #ffffff;
+    border: 2px solid #3b6e3f;
+}
+.artemis-btn::before {
+    background-color: #2e5532;
+}
+.artemis-btn:hover {
+    color: #ffffff;
+    border-color: #2e5532;
+}
+
+/* Perséfone — lilás suave, borda fina */
+.persefone-btn {
+    background-color: transparent;
+    color: #7a52a0;
+    border: 2px solid #7a52a0;
+}
+.persefone-btn::before {
+    background-color: #7a52a0;
+}
+.persefone-btn:hover {
+    color: #ffffff;
+    border-color: #7a52a0;
+}
+
+/* Atena — azul sábio, fundo sólido */
+.atena-btn {
+    background-color: #2a5298;
+    color: #ffffff;
+    border: 2px solid #2a5298;
+}
+.atena-btn::before {
+    background-color: #1e3e75;
+}
+.atena-btn:hover {
+    color: #ffffff;
+    border-color: #1e3e75;
+}
+
+/* Hera — vinho real, estilo luxuoso */
+.hera-btn {
+    background: linear-gradient(135deg, #8b1a2f, #a0243f);
+    color: #ffffff;
+    border: 2px solid #8b1a2f;
+    letter-spacing: 3px;
+}
+.hera-btn::before {
+    background: linear-gradient(135deg, #6b1223, #8b1a2f);
+}
+.hera-btn:hover {
+    color: #f9e8c0;
+    border-color: #6b1223;
+}
+
+
+.divisor {
+    width: 60px;
+    height: 1px;
+    background-color: rgb(16, 81, 81);
+    margin: 60px auto;
+    opacity: 0.3;
+}
+
+
+    /*Personalização para cada deusa */
+.afrodite h2           { color: #b5547a; }
+.afrodite .preco       { color: #b5547a; }
+.afrodite .ritual-foto { background-color: #f5d9e6; }
+.afrodite .ritual-etapas ul li { border-bottom-color: #f0c8d8; }
+
+.artemis h2            { color: #3b6e3f; }
+.artemis .preco        { color: #3b6e3f; }
+.artemis .ritual-foto  { background-color: #cce0cc; }
+.artemis .ritual-etapas ul li { border-bottom-color: #bcd4bc; }
+
+.persefone h2          { color: #7a52a0; }
+.persefone .preco      { color: #7a52a0; }
+.persefone .ritual-foto{ background-color: #e8d9f5; }
+.persefone .ritual-etapas ul li { border-bottom-color: #dcc8f0; }
+
+.atena h2              { color: #2a5298; }
+.atena .preco          { color: #2a5298; }
+.atena .ritual-foto    { background-color: #ccd9f0; }
+.atena .ritual-etapas ul li { border-bottom-color: #b8c8e8; }
+
+.hera h2               { color: #8b1a2f; }
+.hera .preco           { color: #8b1a2f; }
+.hera .ritual-foto     { background-color: #f0d0d8; }
+.hera .ritual-etapas ul li { border-bottom-color: #e0b8c4; }
+
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 140px;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.logo-img {
+    width: 320px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.navegacao {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s;
+}
+
+.btn-contato {
+    background-color: #5bb2a7;
+    color: #ffffff;
+    padding: 11px 26px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.rodape-simples {
+    background-color: #2c3e50;
+    padding: 28px 80px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.rodape-simples p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+}
+
+
+        .cabecalho {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 80px;
+            background-color: #ffffff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 140px;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo-container { display: flex; align-items: center; }
+
+        
+    .logo-img {
+        width: 320px;
+        height: 120px;
+        object-fit: contain;
+}
+
+        
+    
+    .navegacao {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+        
+        
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s;
+    }
+        
+        
+
+.nav-link:hover { color: #5bb2a7; }
+
+        
+
+
+.dropdown { position: relative; display: inline-block; }
+
+        
+        
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    top: 100%;
+    left: 0;
+    z-index: 1001;
+overflow: hidden;
+    border-top: 3px solid #d4af37;
+    padding-top: 10px;
+    margin-top: 0;
+}
+        
+        
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+        
+    
+    
+    .dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeInNav 0.3s ease;
+}
+        
+
+
+        .dropdown-content a {
+    color: #555;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+        
+        
+    .dropdown-content a:hover {
+    background-color: #eef3f0;
+    color: #5bb2a7;
+    padding-left: 26px;
+}
+
+        
+.btn-contato {
+    background-color: #5bb2a7;
+    color: #ffffff;
+    padding: 11px 26px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.3px;
+    transition: background-color 0.3s, transform 0.2s;
+        }
+
+.btn-contato:hover {
+    background-color: #4a9e94;
+    transform: translateY(-1px);
+}
+
+    
+    
+        @keyframes fadeInNav {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+.secao-rituais {
+    padding-top: 180px !important;}
+
+
+.rodape-simples {
+    background-color: #2c3e50;
+    padding: 28px 80px;
+    text-align: center;
+    margin-top: 60px;
+}
+        
+.rodape-simples p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+}
