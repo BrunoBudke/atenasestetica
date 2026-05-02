@@ -536,3 +536,37 @@ html {
     .card-tratamento { padding: 22px 20px 26px; }
     .card-foto { height: 180px; }
 }
+
+
+.logo-img {
+    width: 200px !important;
+    height: 80px !important;
+    object-fit: contain !important;
+}
+.cabecalho {
+    height: 100px !important;
+    padding: 0 60px !important;
+    align-items: center !important;
+}
+
+
+.secao-tratamentos-corporais { padding-top: 130px !important; }
+.secao-tratamentos-faciais   { padding-top: 130px !important; }
+.secao-tratamentos-capilares { padding-top: 130px !important; }
+.secao-rituais               { padding-top: 130px !important; }
+.tratamentos-intro           { margin-top: 0 !important; }
+
+.filtros-wrap { top: 100px !important; }
+.hero-pacotes { padding-top: 100px !important; }
+
+@media (max-width: 900px) {
+    .logo-img { width: 140px !important; height: 55px !important; }
+    .cabecalho { height: 72px !important; padding: 0 16px !important; }
+    .secao-tratamentos-corporais { padding-top: 90px !important; }
+    .secao-tratamentos-faciais   { padding-top: 90px !important; }
+    .secao-tratamentos-capilares { padding-top: 90px !important; }
+    .secao-rituais               { padding-top: 90px !important; }
+    .hero-pacotes                { padding-top: 72px !important; }
+    .filtros-wrap                { top: 72px !important; }
+    .hero-image                  { padding-top: 72px !important; }
+}

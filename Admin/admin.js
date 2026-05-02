@@ -13,45 +13,76 @@ const PACOTES = {
 };
 
 let colaboradores = [
-    { id:1, nome:"Ana Paula",    cargo:"Esteticista Sênior",  esps:["Facial","Corporal","Rituais"],  cor:"#5bb2a7", ag:12 },
-    { id:2, nome:"Juliana Reis", cargo:"Biomédica Esteticista",esps:["Botox","Preenchedor","Microagulhamento"],cor:"#9a7b9a", ag:8  },
-    { id:3, nome:"Camila Torres",cargo:"Terapeuta Holística",  esps:["Rituais","Massagem","Capilar"],          cor:"#d4af37", ag:15 },
-    { id:4, nome:"Fernanda Lima",cargo:"Especialista Capilar", esps:["Capilar","Alta Frequência","Laser"],     cor:"#e07a5f", ag:6  },
+    { id:1, nome:"-",    cargo:"Esteticista Sênior",  esps:["Facial","Corporal","Rituais"],  cor:"#5bb2a7", ag:12 },
+    { id:2, nome:"-", cargo:"Biomédica Esteticista",esps:["Botox","Preenchedor","Microagulhamento"],cor:"#9a7b9a", ag:8  },
+    { id:3, nome:"-",cargo:"Terapeuta Holística",  esps:["Rituais","Massagem","Capilar"],          cor:"#d4af37", ag:15 },
+    { id:4, nome:"-",cargo:"Especialista Capilar", esps:["Capilar","Alta Frequência","Laser"],     cor:"#e07a5f", ag:6  },
 ];
 
 let agendamentos = [
-    { id:1, nome:"Mariana Souza",   tipo:"individual", pacote:"",                          procedimento:"Hidratação Facial",       colaboradora:"Ana Paula",    data:"2026-05-05", hora:"10:00", valor:"100,00", status:"confirmado", obs:"" },
-    { id:2, nome:"Beatriz Costa",   tipo:"pacote",     pacote:"Pacote 4 Sessões – Limpeza",procedimento:"Limpeza de Pele Personalizada",colaboradora:"Ana Paula",data:"2026-05-05", hora:"11:00", valor:"360,00", status:"pendente",   obs:"Pele sensível" },
-    { id:3, nome:"Larissa Mendes",  tipo:"individual", pacote:"",                          procedimento:"Ritual Hera (3h)",        colaboradora:"Camila Torres", data:"2026-05-06", hora:"14:00", valor:"790,00", status:"confirmado", obs:"Primeira vez" },
-    { id:4, nome:"Patricia Gomes",  tipo:"individual", pacote:"",                          procedimento:"Botox",                  colaboradora:"Juliana Reis",  data:"2026-05-07", hora:"09:00", valor:"600,00", status:"pendente",   obs:"" },
+    { id:1, nome:"A",   tipo:"individual", pacote:"",                          procedimento:"Hidratação Facial",       colaboradora:"A",    data:"2026-05-05", hora:"10:00", valor:"100,00", status:"confirmado", obs:"" },
+    { id:2, nome:"B",   tipo:"pacote",     pacote:"Pacote 4 Sessões – Limpeza",procedimento:"Limpeza de Pele Personalizada",colaboradora:"B",data:"2026-05-05", hora:"11:00", valor:"360,00", status:"pendente",   obs:"Pele sensível" },
+    { id:3, nome:"C",  tipo:"individual", pacote:"",                          procedimento:"Ritual Hera (3h)",        colaboradora:"C", data:"2026-05-06", hora:"14:00", valor:"790,00", status:"confirmado", obs:"Primeira vez" },
+    { id:4, nome:"D",  tipo:"individual", pacote:"",                          procedimento:"Botox",                  colaboradora:"D",  data:"2026-05-07", hora:"09:00", valor:"600,00", status:"pendente",   obs:"" },
 ];
 
 let idCounter = 5;
 let delIdx = null;
 
-/* ══ LOGIN ══ */
-function fazerLogin() {
+
+
+// Credenciais em HASH
+const _HASH_U = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918';
+const _HASH_P = '7701965b63d6f7b16f5e14c53cbebfd1d3e32a19efaa65ce6226b87adfcc95e7';
+
+async function _sha256(txt) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(txt));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+
+let _tentativas = 0;
+let _bloqueadoAte = 0;
+
+async function fazerLogin() {
+    const agora = Date.now();
+    if (agora < _bloqueadoAte) {
+        const seg = Math.ceil((_bloqueadoAte - agora) / 1000);
+        document.getElementById('login-erro').style.display = 'flex';
+        document.getElementById('login-erro').querySelector
+            ? document.getElementById('login-erro').innerHTML =
+                `<i class="fas fa-lock"></i> Muitas tentativas. Aguarde ${seg}s.`
+            : null;
+        return;
+    }
+
     const u = document.getElementById('login-user').value.trim();
     const p = document.getElementById('login-pass').value;
-    if (u === 'admin' && p === 'atenas2026') {
+    const [hu, hp] = await Promise.all([_sha256(u), _sha256(p)]);
+
+    if (hu === _HASH_U && hp === _HASH_P) {
+        _tentativas = 0;
         document.getElementById('tela-login').classList.add('oculto');
         renderAll();
     } else {
+        _tentativas++;
+        if (_tentativas >= 5) {
+            _bloqueadoAte = Date.now() + 30000; 
+            _tentativas = 0;
+        }
         document.getElementById('login-erro').style.display = 'flex';
+        document.getElementById('login-erro').innerHTML =
+            `<i class="fas fa-exclamation-circle"></i> Usuário ou senha incorretos.${_tentativas >= 3 ? ` (${5 - _tentativas} tentativa(s) restante(s))` : ''}`;
     }
 }
+
 document.addEventListener('keydown', e => {
     if (e.key === 'Enter') fazerLogin();
 });
 
-function sair() {
-    document.getElementById('tela-login').classList.remove('oculto');
-    document.getElementById('login-user').value = '';
-    document.getElementById('login-pass').value = '';
-    document.getElementById('login-erro').style.display = 'none';
-}
 
-/* ══ NAVEGAÇÃO ══ */
+
+
 function mudarPagina(id, el) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('ativa'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('ativo'));
@@ -62,7 +93,7 @@ function mudarPagina(id, el) {
     if(id==='dashboard') renderDash();
 }
 
-/* ══ RENDER DASHBOARD ══ */
+
 function renderDash() {
     document.getElementById('stat-total').textContent = agendamentos.length;
     document.getElementById('stat-pendentes').textContent = agendamentos.filter(a=>a.status==='pendente').length;
@@ -81,7 +112,7 @@ function renderDash() {
         </tr>`).join('') : `<tr><td colspan="5"><div class="vazio"><i class="far fa-calendar"></i>Nenhum agendamento</div></td></tr>`;
 }
 
-/* ══ RENDER TABELA ══ */
+
 function renderTabela(lista) {
     const tb = document.getElementById('tabela-agendamentos');
     const arr = lista || agendamentos;
@@ -128,7 +159,7 @@ function confirmarExclusao() {
     toast('Agendamento excluído.','erro');
 }
 
-/* ══ RENDER COLABS ══ */
+
 function renderColabs() {
     const grid = document.getElementById('colab-grid');
     grid.innerHTML = colaboradores.map(c => `
@@ -159,7 +190,7 @@ function addColab() {
     toast(`${nome} adicionada!`,'sucesso');
 }
 
-/* ══ FORMULÁRIO ══ */
+/* forms*/
 function carregarProcedimentos() {
     const cat = document.getElementById('f-categoria').value;
     const sel = document.getElementById('f-procedimento');
@@ -214,7 +245,7 @@ function salvarAgendamento() {
         status: document.getElementById('f-status').value,
         obs:    document.getElementById('f-obs').value
     });
-    // incrementar ag da colaboradora
+    
     const c = colaboradores.find(x=>x.nome===colab);
     if(c) c.ag++;
     pacoteSel = '';
@@ -233,7 +264,7 @@ function limparForm() {
     pacoteSel='';
 }
 
-/* ══ UTILITÁRIOS ══ */
+/* utilitarios*/
 function badgeStatus(s) {
     const map = { pendente:'badge-pendente', confirmado:'badge-confirmado', cancelado:'badge-cancelado', concluido:'badge-concluido' };
     const lab = { pendente:'Pendente', confirmado:'Confirmado', cancelado:'Cancelado', concluido:'Concluído' };
@@ -260,7 +291,20 @@ function toast(msg, tipo='sucesso') {
 function renderAll() {
     popularSelectColabs();
     renderDash();
-    // data padrão = hoje
     const hoje = new Date().toISOString().split('T')[0];
     document.getElementById('f-data').value = hoje;
+    
+    sessionStorage.setItem('atenas_auth', '1');
+}
+
+
+function sair() {
+    sessionStorage.removeItem('atenas_auth');
+    document.getElementById('tela-login').classList.remove('oculto');
+    document.getElementById('login-user').value = '';
+    document.getElementById('login-pass').value = '';
+    document.getElementById('login-erro').style.display = 'none';
+    document.getElementById('login-erro').innerHTML =
+        '<i class="fas fa-exclamation-circle"></i> Usuário ou senha incorretos.';
+    _tentativas = 0;
 }

@@ -227,7 +227,7 @@ html {
     flex-direction: column;
 }
 
-.card--nome {
+.card-nome {
     font-family: 'Playfair Display', serif;
     font-size: 19px;
     font-weight: 700;
@@ -237,11 +237,11 @@ html {
 }
 
 .card-descricao {
-    font-size: 14px;
-    color: #777;
-    line-height: 1.8;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.7;
     font-weight: 300;
-    flex: 1;
+    margin-bottom: 14px;
 }
 
 .card-indicacao, .card-beneficios {
@@ -609,5 +609,136 @@ html {
 }
 @media (max-width: 900px) {
     .secao-tratamentos-capilares { padding-top: 100px !important; }
+}
+
+
+
+.logo-img {
+    width: 200px !important;
+    height: 80px !important;
+    object-fit: contain !important;
+}
+.cabecalho {
+    height: 100px !important;
+    padding: 0 60px !important;
+    align-items: center !important;
+}
+
+
+.secao-tratamentos-corporais { padding-top: 130px !important; }
+.secao-tratamentos-faciais   { padding-top: 130px !important; }
+.secao-tratamentos-capilares { padding-top: 130px !important; }
+.secao-rituais               { padding-top: 130px !important; }
+.tratamentos-intro           { margin-top: 0 !important; }
+
+
+.filtros-wrap { top: 100px !important; }
+.hero-pacotes { padding-top: 100px !important; }
+
+@media (max-width: 900px) {
+    .logo-img { width: 140px !important; height: 55px !important; }
+    .cabecalho { height: 72px !important; padding: 0 16px !important; }
+    .secao-tratamentos-corporais { padding-top: 90px !important; }
+    .secao-tratamentos-faciais   { padding-top: 90px !important; }
+    .secao-tratamentos-capilares { padding-top: 90px !important; }
+    .secao-rituais               { padding-top: 90px !important; }
+    .hero-pacotes                { padding-top: 72px !important; }
+    .filtros-wrap                { top: 72px !important; }
+    .hero-image                  { padding-top: 72px !important; }
+}
+
+
+
+.card-indicacao {
+    margin-top: 16px;
+    padding: 0;
+}
+
+.indicacao-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #4a9e94;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.indicacao-header i {
+    display: none;
+}
+
+.indicacao-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag-indicacao {
+    display: inline-block;
+    background: #ffffff;
+    color: #3a8a80;
+    border: 1px solid #b2ddd9;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    line-height: 1.4;
+    transition: all 0.2s;
+}
+.card-tratamento:hover .tag-indicacao {
+    background: #5bb2a7;
+    color: #fff;
+    border-color: #5bb2a7;
+}
+
+
+.card-beneficios {
+    margin-top: 12px;
+    padding: 0;
+}
+
+.beneficios-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #b8961e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.beneficios-header i {
+    display: none;
+}
+
+.beneficios-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tag-beneficio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #6b5c2e;
+    line-height: 1.5;
+    padding: 2px 0;
+    border-bottom: none;
+}
+.tag-beneficio:last-child {
+    border-bottom: none;
+}
+.tag-beneficio::before {
+    content: "·";
+    color: #d4af37;
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
 }
 

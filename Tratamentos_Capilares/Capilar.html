@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="capilar.css">
     <title>Terapias Capilares</title>
 </head>
@@ -11,12 +13,12 @@
     <header class="cabecalho">
         <div class="logo-container">
             <div class="logo-placeholder">
-                <img src="./Logos/Atenas_logo_horiz1.png" alt="Logo" class="logo-img">
+                <img src="/Logos/Atenas_logo_horiz1.png" alt="Logo" class="logo-img">
             </div>
         </div>
 
         <nav class="navegacao">
-            <a href="/Spa.html" class="nav-link">Home</a>
+            <a href="/index.html" class="nav-link">Home</a>
             <div class="dropdown">
                 <a href="#" class="nav-link">Menu</a>
                 <div class="dropdown-content">
@@ -27,9 +29,9 @@
                 </div>
             </div>
             <a href="/Pacotes/pacotes.html" class="nav-link">Pacotes</a>
-            <a href="#videos-spa" class="nav-link">Videos</a>
-            <a href="#ebook-download" class="nav-link">E-book</a>
-            <a href="../Spa.html" class="nav-link">Contato</a>
+            <a href="/index.html#videos-spa" class="nav-link">Videos</a>
+            <a href="/index.html#ebook-download" class="nav-link">E-book</a>
+            <a href="/index.html#contato" class="nav-link">Contato</a>
             <a href="https://wa.me/554195996832" class="btn-contato">Agendar Agora</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -55,9 +57,15 @@
                 </div>
                 <div class="card-texto">
                     <h4 class="card-nome">Intradermoterapia Capilar (Mesoterapia)</h4>
-                    <p class="card-descricao">Tratamento que realiza a aplicação de ativos diretamente no couro cabeludo, estimulando os folículos e tratando a queda capilar de forma eficaz. Indicado para: queda de cabelo, afinamento dos fios, alopecia Benefícios: estímulo do crescimento, fortalecimento capilar, nutrição profunda</p>
-                    <div class="card-indicacao">Indicado para: queda de cabelo, afinamento dos fios, alopecia </div>
-                    <div class="card-beneficios">Benefícios: estímulo do crescimento, fortalecimento capilar, nutrição profunda</div>
+                    <p class="card-descricao">Tratamento que realiza a aplicação de ativos diretamente no couro cabeludo, estimulando os folículos e tratando a queda capilar de forma eficaz.</p>
+                    <div class="card-indicacao">
+                    <div class="indicacao-header"><i class="fas fa-user-check"></i> Indicado para</div>
+                    <div class="indicacao-tags"><span class="tag-indicacao">queda de cabelo</span><span class="tag-indicacao">afinamento dos fios</span><span class="tag-indicacao">alopecia</span></div>
+                </div>
+                    <div class="card-beneficios">
+                    <div class="beneficios-header">Benefícios</div>
+                    <div class="beneficios-tags"><span class="tag-beneficio">Estímulo do crescimento</span><span class="tag-beneficio">Fortalecimento capilar</span><span class="tag-beneficio">Nutrição profunda</span></div>
+                </div>
                     <div class="card-preco">
                         <span class="preco-label">A partir de</span>
                         <span class="preco-valor">R$ -</span>
@@ -72,9 +80,15 @@
                 </div>
                 <div class="card-texto">
                     <h4 class="card-nome">Microagulhamento Capilar</h4>
-                    <p class="card-descricao">Tratamento que utiliza agulhas finas para criar microlesões no couro cabeludo, estimulando a produção de colágeno e melhorando a circulação sanguínea. Indicado para: queda de cabelo, alopecia, textura irregular. Benefícios: estimulo do crescimento, fortalecimento capilar, nutrição profunda</p>
-                    <div class="card-indicacao">Indicado para: queda de cabelo, afinamento dos fios, alopecia </div>
-                    <div class="card-beneficios">Benefícios: estímulo do crescimento, melhora da densidade capilar</div>
+                    <p class="card-descricao">Tratamento que utiliza agulhas finas para criar microlesões no couro cabeludo, estimulando a produção de colágeno e melhorando a circulação sanguínea.</p>
+                    <div class="card-indicacao">
+                    <div class="indicacao-header"><i class="fas fa-user-check"></i> Indicado para</div>
+                    <div class="indicacao-tags"><span class="tag-indicacao">queda de cabelo</span><span class="tag-indicacao">afinamento dos fios</span><span class="tag-indicacao">alopecia</span></div>
+                </div>
+                    <div class="card-beneficios">
+                    <div class="beneficios-header"><i class="fas fa-sparkles"></i> Benefícios</div>
+                    <div class="beneficios-tags"><span class="tag-beneficio">Estímulo do crescimento</span><span class="tag-beneficio">Melhora da densidade capilar</span></div>
+                </div>
                     <div class="card-preco">
                         <span class="preco-label">A partir de</span>
                         <span class="preco-valor">R$ -</span>
@@ -91,8 +105,14 @@
                 <div class="card-texto">
                     <h4 class="card-nome">Ozonioterapia Capilar</h4>
                     <p class="card-descricao">Uso do ozônio medicinal para promover ação anti-inflamatória, antifúngica e bactericida no couro cabeludo.</p>
-                    <div class="card-indicacao">Indicado para: caspa, oleosidade, dermatites</div>
-                    <div class="card-beneficios">Benefícios: redução da inflamação, combate a fungos e bactérias, melhora da saúde do couro cabeludo</div>
+                    <div class="card-indicacao">
+                    <div class="indicacao-header"><i class="fas fa-user-check"></i> Indicado para</div>
+                    <div class="indicacao-tags"><span class="tag-indicacao">caspa</span><span class="tag-indicacao">oleosidade</span><span class="tag-indicacao">dermatites</span></div>
+                </div>
+                    <div class="card-beneficios">
+                    <div class="beneficios-header"><i class="fas fa-sparkles"></i> Benefícios</div>
+                    <div class="beneficios-tags"><span class="tag-beneficio">Redução da inflamação</span><span class="tag-beneficio">Combate a fungos e bactérias</span><span class="tag-beneficio">Melhora da saúde do couro cabeludo</span></div>
+                </div>
                     <div class="card-preco">
                         <span class="preco-label">Seção</span>
                         <span class="preco-valor">R$ -</span>
@@ -109,8 +129,14 @@
                 <div class="card-texto">
                     <h4 class="card-nome">Alta Frequência</h4>
                     <p class="card-descricao">Equipamento que promove ação bactericida e fungicida, além de estimular a circulação no couro cabeludo. </p>
-                    <div class="card-indicacao">Indicado para: caspa, oleosidade, dermatites</div>
-                    <div class="card-beneficios">Benefícios: estímulo do crescimento, melhora da densidade capilar</div>
+                    <div class="card-indicacao">
+                    <div class="indicacao-header"><i class="fas fa-user-check"></i> Indicado para</div>
+                    <div class="indicacao-tags"><span class="tag-indicacao">caspa</span><span class="tag-indicacao">oleosidade</span><span class="tag-indicacao">dermatites</span></div>
+                </div>
+                    <div class="card-beneficios">
+                    <div class="beneficios-header"><i class="fas fa-sparkles"></i> Benefícios</div>
+                    <div class="beneficios-tags"><span class="tag-beneficio">Estímulo do crescimento</span><span class="tag-beneficio">Melhora da densidade capilar</span></div>
+                </div>
                     <div class="card-preco">
                         <span class="preco-label">A partir de</span>
                         <span class="preco-valor">R$ -</span>
@@ -127,8 +153,14 @@
                 <div class="card-texto">
                     <h4 class="card-nome">Fotobiomodulação Capilar </h4>
                     <p class="card-descricao">Terapia com luz LED/infravermelha que estimula a atividade celular e melhora a saúde dos folículos capilares. </p>
-                    <div class="card-indicacao">Indicado para: queda de cabelo, alopecia, textura irregular</div>
-                    <div class="card-beneficios">Benefícios: estímulo do crescimento, melhora da densidade capilar</div>
+                    <div class="card-indicacao">
+                    <div class="indicacao-header"><i class="fas fa-user-check"></i> Indicado para</div>
+                    <div class="indicacao-tags"><span class="tag-indicacao">queda de cabelo</span><span class="tag-indicacao">alopecia</span><span class="tag-indicacao">textura irregular</span></div>
+                </div>
+                    <div class="card-beneficios">
+                    <div class="beneficios-header"><i class="fas fa-sparkles"></i> Benefícios</div>
+                    <div class="beneficios-tags"><span class="tag-beneficio">Estímulo do crescimento</span><span class="tag-beneficio">Melhora da densidade capilar</span></div>
+                </div>
                     <div class="card-preco">
                         <span class="preco-label">A partir de</span>
                         <span class="preco-valor">R$ -</span>

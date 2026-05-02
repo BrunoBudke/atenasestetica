@@ -381,7 +381,7 @@ html {
 .menu-toggle.aberto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 
-/* Overlay escuro atrás do menu mobile */
+
 
 .nav-overlay {
     display: none;
@@ -626,6 +626,44 @@ html {
 @media (max-width: 900px) {
     .secao-tratamentos-faciais { padding-top: 100px !important; }
     .tratamentos-intro { margin-top: 0 !important; }
+}
+
+
+
+
+
+.logo-img {
+    width: 200px !important;
+    height: 80px !important;
+    object-fit: contain !important;
+}
+.cabecalho {
+    height: 100px !important;
+    padding: 0 60px !important;
+    align-items: center !important;
+}
+
+
+.secao-tratamentos-corporais { padding-top: 130px !important; }
+.secao-tratamentos-faciais   { padding-top: 130px !important; }
+.secao-tratamentos-capilares { padding-top: 130px !important; }
+.secao-rituais               { padding-top: 130px !important; }
+.tratamentos-intro           { margin-top: 0 !important; }
+
+
+.filtros-wrap { top: 100px !important; }
+.hero-pacotes { padding-top: 100px !important; }
+
+@media (max-width: 900px) {
+    .logo-img { width: 140px !important; height: 55px !important; }
+    .cabecalho { height: 72px !important; padding: 0 16px !important; }
+    .secao-tratamentos-corporais { padding-top: 90px !important; }
+    .secao-tratamentos-faciais   { padding-top: 90px !important; }
+    .secao-tratamentos-capilares { padding-top: 90px !important; }
+    .secao-rituais               { padding-top: 90px !important; }
+    .hero-pacotes                { padding-top: 72px !important; }
+    .filtros-wrap                { top: 72px !important; }
+    .hero-image                  { padding-top: 72px !important; }
 }
 
 

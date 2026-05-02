@@ -731,7 +731,7 @@ box-shadow:0 16px 48px rgba(44,62,80,.13);
             border-style: solid;
     }
 
-        /* cores p/ categoria no modal */
+    /* cores p/ categoria no modal */
 .modal-corporal  { --cor-cat:#5bb2a7; --cor-cat-esc:#4a9e94; --bg-cat:#f0faf9; }
 .modal-facial    { --cor-cat:#9a7b9a; --cor-cat-esc:#7a5b7a; --bg-cat:#f8f0f8; }
 .modal-ritual    { --cor-cat:#d4af37; --cor-cat-esc:#b8961e; --bg-cat:#fdf8ec; }
@@ -1020,4 +1020,38 @@ box-shadow:0 16px 48px rgba(44,62,80,.13);
         padding: 14px 20px !important;
         font-size: 15px !important;
     }
+}
+
+.logo-img {
+    width: 200px !important;
+    height: 80px !important;
+    object-fit: contain !important;
+}
+.cabecalho {
+    height: 100px !important;
+    padding: 0 60px !important;
+    align-items: center !important;
+}
+
+
+.secao-tratamentos-corporais { padding-top: 130px !important; }
+.secao-tratamentos-faciais   { padding-top: 130px !important; }
+.secao-tratamentos-capilares { padding-top: 130px !important; }
+.secao-rituais               { padding-top: 130px !important; }
+.tratamentos-intro           { margin-top: 0 !important; }
+
+
+.filtros-wrap { top: 100px !important; }
+.hero-pacotes { padding-top: 100px !important; }
+
+@media (max-width: 900px) {
+    .logo-img { width: 140px !important; height: 55px !important; }
+    .cabecalho { height: 72px !important; padding: 0 16px !important; }
+    .secao-tratamentos-corporais { padding-top: 90px !important; }
+    .secao-tratamentos-faciais   { padding-top: 90px !important; }
+    .secao-tratamentos-capilares { padding-top: 90px !important; }
+    .secao-rituais               { padding-top: 90px !important; }
+    .hero-pacotes                { padding-top: 72px !important; }
+    .filtros-wrap                { top: 72px !important; }
+    .hero-image                  { padding-top: 72px !important; }
 }

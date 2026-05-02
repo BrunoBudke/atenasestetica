@@ -148,7 +148,47 @@
 
     <footer class="rodape-simples">
         <p>© 2026 Atenas Clinica Estética - Todos os direitos reservados.</p>
+        <button class="btn-admin-acesso" onclick="acessarAdmin()" title="Acesso Administrativo">
+            <i class="fas fa-lock"></i>
+        </button>
     </footer>
+
+<script>
+const _ADMIN_HASH = '7701965b63d6f7b16f5e14c53cbebfd1d3e32a19efaa65ce6226b87adfcc95e7';
+let _adminTentativas = 0;
+let _adminBloqueadoAte = 0;
+
+async function _sha256(txt) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(txt));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function acessarAdmin() {
+    const agora = Date.now();
+    if (agora < _adminBloqueadoAte) {
+        const seg = Math.ceil((_adminBloqueadoAte - agora) / 1000);
+        alert(`Muitas tentativas. Aguarde ${seg} segundos.`);
+        return;
+    }
+    const senha = prompt('Senha de acesso:');
+    if (senha === null) return;
+    const hash = await _sha256(senha);
+    if (hash === _ADMIN_HASH) {
+        _adminTentativas = 0;
+        sessionStorage.setItem('atenas_auth', '1');
+        window.location.href = '/Admin/Admin_Agendamento.html';
+    } else {
+        _adminTentativas++;
+        if (_adminTentativas >= 5) {
+            _adminBloqueadoAte = Date.now() + 30000;
+            _adminTentativas = 0;
+            alert('Muitas tentativas incorretas. Acesso bloqueado por 30 segundos.');
+        } else {
+            alert(`Senha incorreta. (${5 - _adminTentativas} tentativa(s) restante(s))`);
+        }
+    }
+}
+</script>
 
 <script src="/Menu_mobile.js"></script>
 </body>
