@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +40,7 @@ h1 {
     padding: 0 20px;
 }
 
-/* Seção de Rituais */
+/* SeçãoRituais */
 .secao-rituais {
     padding-top: 180px !important;
 }
@@ -160,7 +159,7 @@ h1 {
 }
 
 
-/* Botão Consultar \*/
+/* Botão Consulta*/
 .container-do-produto {
     width: 100%;
     display: flex;
@@ -219,7 +218,7 @@ h1 {
     z-index: 1;
 }
 
-/* Afrodite — rosa quente, borda elegante */
+/* Afrodite*/
 .afrodite-btn {
     background-color: transparent;
     color: #b5547a;
@@ -233,7 +232,7 @@ h1 {
     border-color: #b5547a;
 }
 
-/* Ártemis — verde floresta, fundo sólido natural */
+/* Ártemis*/
 .artemis-btn {
     background-color: #3b6e3f;
     color: #ffffff;
@@ -247,7 +246,7 @@ h1 {
     border-color: #2e5532;
 }
 
-/* Perséfone — lilás suave, borda fina */
+/* Perséfone*/
 .persefone-btn {
     background-color: transparent;
     color: #7a52a0;
@@ -261,7 +260,7 @@ h1 {
     border-color: #7a52a0;
 }
 
-/* Atena — azul sábio, fundo sólido */
+/* Aten*/
 .atena-btn {
     background-color: #2a5298;
     color: #ffffff;
@@ -275,7 +274,7 @@ h1 {
     border-color: #1e3e75;
 }
 
-/* Hera — vinho real, estilo luxuoso */
+/* Hera*/
 .hera-btn {
     background: linear-gradient(135deg, #8b1a2f, #a0243f);
     color: #ffffff;
@@ -300,7 +299,7 @@ h1 {
 }
 
 
-    /*Personalização para cada deusa */
+/*Personalizacao p/cada deusa */
 .afrodite h2           { color: #b5547a; }
 .afrodite .preco       { color: #b5547a; }
 .afrodite .ritual-foto { background-color: #f5d9e6; }
@@ -510,7 +509,7 @@ overflow: hidden;
 
     
     
-        @keyframes fadeInNav {
+    @keyframes fadeInNav {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
@@ -532,4 +531,160 @@ overflow: hidden;
     color: rgba(255,255,255,0.45);
     letter-spacing: 0.5px;
     font-family: 'Poppins', sans-serif;
+}
+
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    transition: background 0.2s;
+    z-index: 1100;
+}
+.menu-toggle:hover { background: rgba(91,178,167,0.1); }
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #555;
+    border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: center;
+}
+.menu-toggle.aberto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.aberto span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.menu-toggle.aberto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 900;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.nav-overlay.visivel {
+    display: block;
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .menu-toggle { display: flex; }
+
+    .navegacao {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(340px, 88vw);
+        height: 100vh;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 100px 32px 40px;
+        gap: 0;
+        z-index: 1000;
+        box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+        transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+        overflow-y: auto;
+    }
+    .navegacao.aberta { right: 0; }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+        display: block;
+        color: #333 !important;
+    }
+    .nav-link:last-of-type { border-bottom: none; }
+
+    .dropdown {
+        width: 100%;
+    }
+    .dropdown > .nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .dropdown > .nav-link::after {
+        content: '›';
+        font-size: 20px;
+        color: #5bb2a7;
+        transition: transform 0.3s;
+    }
+
+    .dropdown-content {
+        position: static !important;
+        display: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: #f9fbfa !important;
+        padding: 0 0 0 16px !important;
+        margin: 0 !important;
+        border-top: none !important;
+        border-left: 3px solid #5bb2a7 !important;
+        margin-bottom: 8px !important;
+        overflow: visible !important;
+        animation: none !important;
+    }
+    .dropdown.dropdown-aberto > .nav-link::after {
+        transform: rotate(90deg);
+    }
+    .dropdown.dropdown-aberto .dropdown-content {
+        display: block !important;
+    }
+    .dropdown-content a {
+        font-size: 14px !important;
+        padding: 10px 16px !important;
+        color: #555 !important;
+        border-bottom: 1px solid #eee !important;
+    }
+    .dropdown-content a:last-child { border-bottom: none !important; }
+
+    .btn-contato {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px !important;
+        font-size: 15px !important;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .cabecalho { padding: 0 20px !important; height: 80px !important; }
+    .logo-img { width: 160px !important; height: 60px !important; }
+    .secao-rituais { padding-top: 110px !important; }
+
+    h1 { font-size: 40px; padding-top: 40px; }
+    .ritual-section { margin: 50px auto 40px; padding: 0 20px; }
+    .ritual-header h2 { font-size: 28px; }
+    .ritual-foto { height: 280px; }
+
+    .ritual-detalhes { flex-direction: column; gap: 20px; }
+    .ritual-valor { text-align: left; }
+    .ritual-valor .preco { font-size: 28px; }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 30px; letter-spacing: 2px; }
+    .subtitulo { font-size: 14px; letter-spacing: 2px; }
+    .descricao { font-size: 15px; }
+    .ritual-foto { height: 220px; }
+    .ritual-header h2 { font-size: 24px; }
+    .btn-pacotes { padding: 12px 28px; font-size: 12px; }
+
+    .rodape-simples { padding: 24px 20px !important; }
 }

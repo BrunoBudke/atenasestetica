@@ -1,4 +1,4 @@
-/* Procedimentos por categoria */
+/* Por categoria */
 const PROCEDIMENTOS = {
     corporal: [
         { id:'c1',  nome:'Massagem Relaxante',         detalhe:'60 min por sessão',         preco:'Sob consulta' },
@@ -12,7 +12,7 @@ const PROCEDIMENTOS = {
         { id:'c9',  nome:'Carboxiterapia Corporal',    detalhe:'Celulite e gordura',        preco:'Sob consulta' },
         { id:'c10', nome:'Laserterapia Corporal',      detalhe:'Cicatrizes e estrias',      preco:'Sob consulta' },
     ],
-    facial: [
+facial: [
         { id:'f1',  nome:'Limpeza de Pele Personalizada', detalhe:'60 min — R$ 120 / sessão',  preco:'R$ 120' },
         { id:'f2',  nome:'Hidratação Facial',             detalhe:'45 min — R$ 100 / sessão',  preco:'R$ 100' },
         { id:'f3',  nome:'Dermaplaning',                  detalhe:'30 min — R$ 150 / sessão',  preco:'R$ 150' },
@@ -33,7 +33,7 @@ const PROCEDIMENTOS = {
         { id:'r4', nome:'Ritual Atena',     detalhe:'3h — Banho de leite + drenodetox RF + máscara + espumante',preco:'R$ 620' },
         { id:'r5', nome:'Ritual Hera',      detalhe:'3h — Vinoterapia + pedras quentes + máscara + vinho',      preco:'R$ 790' },
     ],
-    capilar: [
+capilar: [
         { id:'k1', nome:'Intradermoterapia Capilar (Mesoterapia)', detalhe:'Ativos no couro cabeludo',       preco:'Sob avaliação' },
         { id:'k2', nome:'Microagulhamento Capilar',                detalhe:'Estímulo de colágeno',           preco:'Sob avaliação' },
         { id:'k3', nome:'Ozonioterapia Capilar',                   detalhe:'Anti-inflamatório e antifúngico',preco:'Sob avaliação' },
@@ -50,11 +50,11 @@ const CAT_LABEL = {
 };
 
 
-let modalCardAtual = null;        // elemento .card-pacote em edição
-let modalSelecionados = new Set(); // ids temporários no modal
-const cardEstado = new Map();      // card → Set<id> confirmados
+let modalCardAtual = null;        
+let modalSelecionados = new Set(); 
+const cardEstado = new Map();      
 
-/* FIltro*/
+
 function filtrar(cat, btn) {
     document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('ativo'));
     btn.classList.add('ativo');
@@ -64,8 +64,7 @@ function filtrar(cat, btn) {
     });
 }
 
-/* ABRIR MODAL
- */
+
 function abrirModal(btn) {
     const card = btn.closest('.card-pacote');
     const cat  = card.dataset.cat;
@@ -75,25 +74,25 @@ function abrirModal(btn) {
     modalCardAtual = card;
     modalSelecionados = new Set(cardEstado.get(card) || []);
 
-    // preenche cabeçalho
+    
     document.getElementById('modalCat').textContent    = CAT_LABEL[cat] || cat;
     document.getElementById('modalTitulo').textContent = nome;
     document.getElementById('modalDesc').textContent   = desc;
 
-    // cor 
+
     const caixa = document.getElementById('modalCaixa');
     caixa.className = 'modal-caixa modal-' + cat;
 
-    // renderizar
+    
     renderizarProcedimentos(cat);
     atualizarRodapeModal();
 
-    // abrir overlay
+    
     document.getElementById('modalOverlay').classList.add('aberto');
     document.body.style.overflow = 'hidden';
 }
 
-/* Lista*/
+
 function renderizarProcedimentos(cat) {
     const corpo = document.getElementById('modalCorpo');
     const lista = PROCEDIMENTOS[cat] || [];
@@ -118,8 +117,7 @@ function renderizarProcedimentos(cat) {
     `;
 }
 
-/* 
-TOGGLE PROCEDIMENTO */
+
 function toggleProc(el, id) {
     if (modalSelecionados.has(id)) {
         modalSelecionados.delete(id);
@@ -149,19 +147,17 @@ function atualizarRodapeModal() {
     document.getElementById('btnConfirmarModal').disabled = (n === 0);
 }
 
-/* ══════════════════════════════════════════
-   CONFIRMAR → SALVA NO CARD
-══════════════════════════════════════════ */
+
 function confirmarModal() {
     if (!modalCardAtual || modalSelecionados.size === 0) return;
 
     const cat  = modalCardAtual.dataset.cat;
     const lista = PROCEDIMENTOS[cat] || [];
 
-    // salva estado
+    
     cardEstado.set(modalCardAtual, new Set(modalSelecionados));
 
-    // atualiza chips no card
+    
     const container = modalCardAtual.querySelector('.card-procs-selecionados');
     const selecionados = lista.filter(p => modalSelecionados.has(p.id));
     const corClass = { corporal:'#5bb2a7', facial:'#9a7b9a', ritual:'#d4af37', capilar:'#5b8dc8' };
@@ -174,7 +170,7 @@ function confirmarModal() {
         </span>
     `).join('') || '<span style="font-size:12px;color:#aaa;font-style:italic">Nenhum procedimento selecionado</span>';
 
-    // atualiza botão personalizar
+    
     const btnP = modalCardAtual.querySelector('.btn-personalizar');
     if (selecionados.length > 0) {
         btnP.classList.add('tem-selecao');
@@ -188,9 +184,7 @@ function confirmarModal() {
     atualizarPainelSelecao();
 }
 
-/* ══════════════════════════════════════════
-   FECHAR MODAL
-══════════════════════════════════════════ */
+
 function fecharModal() {
     document.getElementById('modalOverlay').classList.remove('aberto');
     document.body.style.overflow = '';
@@ -201,7 +195,7 @@ function fecharModalFora(e) {
     if (e.target === document.getElementById('modalOverlay')) fecharModal();
 }
 
-/* AGENDAR CARD INDIVIDUAL*/
+
 function agendarCard(e, linkEl) {
     e.preventDefault();
     const card = linkEl.closest('.card-pacote');
@@ -220,9 +214,9 @@ function agendarCard(e, linkEl) {
     window.open('https://wa.me/554195996832?text=' + encodeURIComponent(msg), '_blank');
 }
 
-/*(seleção múltipla)*/
 
-let pacotesSelecionados = []; // { card, nome }
+
+let pacotesSelecionados = []; //
 
 function atualizarPainelSelecao() {
     pacotesSelecionados = [];
@@ -261,7 +255,7 @@ function atualizarPainelSelecao() {
 function removerPacote(i) {
     const { card } = pacotesSelecionados[i];
     cardEstado.delete(card);
-    // limpar chips-botão no card
+    
     const container = card.querySelector('.card-procs-selecionados');
     if (container) container.innerHTML = '';
     const btnP = card.querySelector('.btn-personalizar');
@@ -298,7 +292,7 @@ function agendarSelecionados() {
     window.open('https://wa.me/554195996832?text=' + encodeURIComponent(msg), '_blank');
 }
 
-/* Fechar ESC */
+
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') fecharModal();
 });

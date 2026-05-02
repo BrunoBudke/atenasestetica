@@ -10,7 +10,8 @@
 </head>
 <body>
 
-<header class="cabecalho">
+<div class="nav-overlay" id="navOverlay"></div>
+    <header class="cabecalho">
     <div class="logo-container">
         <img src="/Logos/Atenas_logo_horiz1.png" alt="Atenas Clínica Estética" class="logo-img">
     </div>
@@ -30,6 +31,9 @@
         <a href="./Spa.html#ebook-download" class="nav-link">E-book</a>
         <a href="./Spa.html#contato"        class="nav-link">Contato</a>
         <a href="https://wa.me/554195996832" target="_blank" class="btn-contato">Agendar Agora</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
     </nav>
 </header>
 
@@ -144,7 +148,7 @@
     </div>
 </section>
 
-<!--  Facial  -->
+<!--Facial-->
 <section class="secao-pacotes secao-grupo" data-cat="facial">
     <div class="secao-titulo cat-facial">
         <div class="txt">
@@ -233,7 +237,7 @@
     </div>
 </section>
 
-<!--Rituais  -->
+<!--Rituais -->
 <section class="secao-pacotes secao-grupo" data-cat="ritual">
     <div class="secao-titulo cat-ritual">
         <div class="txt">
@@ -420,6 +424,7 @@
     <p>© 2026 Atenas Clínica Estética — Todos os direitos reservados.</p>
 </footer>
 
+<script src="/Menu_mobile.js"></script>
 </body>
 </html>
 <script src="/Pacotes/pacotes.js"></script>
