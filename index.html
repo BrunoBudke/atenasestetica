@@ -28,7 +28,6 @@
             <a href="./Tratamentos_Capilares/Capilar.html">Terapias Capilares</a>
         </div>
     </div>
-    <a href="/Pacotes/pacotes.html" class="nav-link">Pacotes</a>
     <a href="#videos-spa" class="nav-link">Vídeos</a>
     <a href="#ebook-download" class="nav-link">E-book</a>
     <a href="#contato" class="nav-link">Contato</a>
@@ -92,16 +91,19 @@
                     <div class="decor-box">
                         <h3>Garanta sua cópia</h3>
                         <p>Informe seu melhor e-mail para receber o acesso instantâneo.</p>
-                        <form>
+                        <form id="formEbook" onsubmit="enviarFolder(event)">
                             <div class="campo-grupo">
                                 <label>Nome Completo</label>
-                                <input type="text" placeholder="Como quer ser chamado?" required>
+                                <input type="text" id="ebookNome" placeholder="Como quer ser chamado?" required>
                             </div>
                             <div class="campo-grupo">
                                 <label>E-mail Pessoal</label>
-                                <input type="email" placeholder="exemplo@email.com" required>
+                                <input type="email" id="ebookEmail" placeholder="exemplo@email.com" required>
                             </div>
-                            <button type="submit" class="btn-ebook">Baixar E-book</button>
+                            <div id="ebookFeedback" style="display:none;margin-bottom:12px;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;text-align:center;"></div>
+                            <button type="submit" class="btn-ebook" id="btnEbook">
+                                <span id="btnEbookTexto">Receber no E-mail + Baixar</span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -116,32 +118,30 @@
                 
                 <div class="contato-item">
                     <h3>Horário de Funcionamento:</h3>
-                    <p><strong>Segunda a Sábado</strong> das 9h às 20h</p>
-                    <p><strong>Domingo</strong> das 14h às 20h</p>
+                    <p><strong>Segunda a Sexta</strong> das 9h às 19h</p>
                 </div>
 
                 <div class="contato-item">
                     <h3>Endereço no:</h3>
-                    <p>Av. , 000 – Centro - Matinhos,</p>
+                    <p>Rua Ceciliano Tavares, 431 – Centro - Matinhos,</p>
                     <p>Matinhos – PR, 00000-000</p>
                 </div>
 
                 <div class="contato-item">
                     <h3>Telefones:</h3>
-                    <p>(55) 0000 – 0000</p>
+                    <p>(41) 99599 – 6832</p>
                     <p>(55) 00000 – 0000</p>
                 </div>
 
                 <div class="redes-sociais">
                     <a href="https://wa.me/554195996832" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/athenaspa" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/athenaspa" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
 
             <div class="contato-mapa">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57482.95774772994!2d-48.55782593353242!3d-25.780970760419002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dbee2def8620f1%3A0xe1f069c76f033955!2sMatinhos%2C%20PR%2C%2083260-000!5e0!3m2!1spt-BR!2sbr!4v1774324753083!5m2!1spt-BR!2sbr" 
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d644.4170957745021!2d-48.53639487988957!3d-25.820828908793096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dbee4a4d614109%3A0xa826b5c787de414a!2sR.%20Cec%C3%ADliano%20Tavares%2C%20429%20-%20Centro%2C%20Matinhos%20-%20PR%2C%2083260-000!5e1!3m2!1spt-BR!2sbr!4v1777790338627!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -190,6 +190,69 @@ async function acessarAdmin() {
 }
 </script>
 
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+    // Initialize EmailJS — substitua pelo seu Public Key em https://emailjs.com
+    emailjs.init('SUA_PUBLIC_KEY_AQUI');
+})();
+
+function mostrarFeedback(msg, tipo) {
+    const el = document.getElementById('ebookFeedback');
+    el.style.display = 'block';
+    el.style.background = tipo === 'ok' ? 'rgba(91,178,167,0.18)' : 'rgba(220,80,80,0.18)';
+    el.style.color = tipo === 'ok' ? '#5bb2a7' : '#e05555';
+    el.style.border = '1px solid ' + (tipo === 'ok' ? '#5bb2a7' : '#e05555');
+    el.textContent = msg;
+}
+
+async function enviarFolder(e) {
+    e.preventDefault();
+    const nome  = document.getElementById('ebookNome').value.trim();
+    const email = document.getElementById('ebookEmail').value.trim();
+    const btn   = document.getElementById('btnEbook');
+    const texto = document.getElementById('btnEbookTexto');
+
+    // 1. Download imediato no dispositivo
+    const link = document.createElement('a');
+    link.href = '/Atenas_Folder_A4_2dobras.pdf';
+    link.download = 'Atenas_Folder.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // 2. Envio por e-mail via EmailJS
+    btn.disabled = true;
+    texto.textContent = 'Enviando...';
+
+    try {
+        await emailjs.send(
+            'SUA_SERVICE_ID',    // ex: 'service_abc123'
+            'SUA_TEMPLATE_ID',   // ex: 'template_xyz456'
+            {
+                to_name:  nome,
+                to_email: email,
+                from_name: 'Atenas Clínica Estética',
+                message: 'Olá ' + nome + ', segue em anexo o folder da Atenas Clínica Estética. Obrigada pela sua visita!'
+            }
+        );
+        mostrarFeedback('✓ Folder enviado para ' + email + '!', 'ok');
+        texto.textContent = '✓ Enviado!';
+        setTimeout(() => {
+            texto.textContent = 'Receber no E-mail + Baixar';
+            btn.disabled = false;
+            document.getElementById('ebookFeedback').style.display = 'none';
+        }, 4000);
+    } catch(err) {
+        mostrarFeedback('Download realizado! Houve um problema no envio do e-mail.', 'erro');
+        texto.textContent = 'Receber no E-mail + Baixar';
+        btn.disabled = false;
+        console.error('EmailJS error:', err);
+    }
+}
+</script>
 <script src="/Menu_mobile.js"></script>
 </body>
 </html>
