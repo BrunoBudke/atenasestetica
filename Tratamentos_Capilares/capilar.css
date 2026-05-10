@@ -111,6 +111,7 @@ html {
     text-align: center;
     max-width: 720px;
     margin: 0 auto 70px;
+    margin-top: 200px;
 }
 
 .subtitle-tratamentos {
@@ -141,7 +142,10 @@ html {
 }
 
 .subtitulo-capilar {
-    font-size: 17px;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
     color: #444;
     line-height: 1.9;
     font-weight: 400;

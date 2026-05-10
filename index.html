@@ -216,8 +216,8 @@ async function enviarFolder(e) {
 
     // 1. Download imediato no dispositivo
     const link = document.createElement('a');
-    link.href = '/Atenas_Folder_A4_2dobras.pdf';
-    link.download = 'Atenas_Folder.pdf';
+    link.href = '/Catalogo/Catalogo.html';
+    link.download = './Catalogo/Catalogo.html';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -228,8 +228,8 @@ async function enviarFolder(e) {
 
     try {
         await emailjs.send(
-            'SUA_SERVICE_ID',    // ex: 'service_abc123'
-            'SUA_TEMPLATE_ID',   // ex: 'template_xyz456'
+            'SUA_SERVICE_ID',    
+            'SUA_TEMPLATE_ID',   
             {
                 to_name:  nome,
                 to_email: email,
@@ -238,7 +238,7 @@ async function enviarFolder(e) {
             }
         );
         mostrarFeedback('✓ Folder enviado para ' + email + '!', 'ok');
-        texto.textContent = '✓ Enviado!';
+        texto.textContent = ' Enviado!';
         setTimeout(() => {
             texto.textContent = 'Receber no E-mail + Baixar';
             btn.disabled = false;
