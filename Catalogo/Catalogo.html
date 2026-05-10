@@ -38,10 +38,42 @@
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior-y: contain;
-      
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                   'Helvetica Neue', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
+
+    /* --- LÓGICA DO CSS PURE TAB (SEM JS) --- */
+    .tab-radio {
+      display: none;
+    }
+
+    .section {
+      display: none; /* Esconde todas as seções por padrão */
+      padding: 0 1rem 2rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Mostra a seção quando o rádio correspondente está marcado */
+    #tab-rituais:checked ~ #sec-rituais,
+    #tab-faciais:checked ~ #sec-faciais,
+    #tab-corporais:checked ~ #sec-corporais,
+    #tab-capilar:checked ~ #sec-capilar {
+      display: block;
+      -webkit-animation: fadeUp 0.32s ease-out both;
+      animation: fadeUp 0.32s ease-out both;
+    }
+
+    /* Pinta o botão (label) do menu quando o rádio está marcado */
+    #tab-rituais:checked ~ #nav [for="tab-rituais"],
+    #tab-faciais:checked ~ #nav [for="tab-faciais"],
+    #tab-corporais:checked ~ #nav [for="tab-corporais"],
+    #tab-capilar:checked ~ #nav [for="tab-capilar"] {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    /* -------------------------------------- */
 
     #cover {
       display: -webkit-flex;
@@ -92,7 +124,6 @@
       color: var(--muted);
     }
 
-
     #nav {
       display: -webkit-flex;
       display: flex;
@@ -113,9 +144,9 @@
     }
     #nav::-webkit-scrollbar { display: none; }
 
+    /* Transformamos o nav-btn em Label para acionar os rádios invisíveis */
     .nav-btn {
-      -webkit-appearance: none;
-      appearance: none;
+      display: inline-block;
       background: transparent;
       border: 1.5px solid rgba(201,168,76,0.3);
       color: var(--muted);
@@ -134,30 +165,10 @@
       transition: background 0.22s, color 0.22s, border-color 0.22s;
       touch-action: manipulation;
       min-height: 36px;
+      line-height: 1.5;
     }
-
-    .nav-btn.active {
-      background: var(--gold);
-      color: var(--navy);
-      border-color: var(--gold);
-      font-weight: 700;
-    }
-
 
     #catalog { padding-bottom: max(2rem, env(safe-area-inset-bottom, 2rem)); }
-
-    .section {
-      display: none;
-      padding: 0 1rem 2rem;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .section.visible {
-      display: block;
-      -webkit-animation: fadeUp 0.32s ease-out both;
-      animation: fadeUp 0.32s ease-out both;
-    }
 
     @-webkit-keyframes fadeUp {
       from { opacity: 0; -webkit-transform: translateY(10px); transform: translateY(10px); }
@@ -300,7 +311,7 @@
     }
 
     .ritual-steps li::before {
-      content: '\2756'; /* ✦ */
+      content: '\2756';
       position: absolute;
       left: 0;
       top: 7px;
@@ -322,7 +333,6 @@
       padding-top: 0.9rem;
       border-top: 1px solid rgba(201,168,76,0.12);
     }
-
 
     .price {
       font-family: Georgia, 'Times New Roman', serif;
@@ -422,21 +432,19 @@
   </style>
 </head>
 <body>
+
 <div id="catalog">
+  <input type="radio" name="tabs" id="tab-rituais" class="tab-radio" checked>
+  <input type="radio" name="tabs" id="tab-faciais" class="tab-radio">
+  <input type="radio" name="tabs" id="tab-corporais" class="tab-radio">
+  <input type="radio" name="tabs" id="tab-capilar" class="tab-radio">
 
   <div id="cover">
-    <svg class="cover-logo" viewBox="0 0 240 108" xmlns="http://www.w3.org/2000/svg"
-         role="img" aria-label="Atenas Clínica Estética">
-      <rect x="3" y="3" width="234" height="102" rx="6"
-            fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
-      <text x="120" y="44" text-anchor="middle"
-            font-family="Georgia,'Times New Roman',serif"
-            font-size="32" font-weight="400" fill="#e2c97e" letter-spacing="5">ATENAS</text>
-      <line x1="36" y1="55" x2="204" y2="55"
-            stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
-      <text x="120" y="76" text-anchor="middle"
-            font-family="Georgia,'Times New Roman',serif"
-            font-size="10" font-weight="400" fill="#a09070" letter-spacing="4">CL&#205;NICA EST&#201;TICA</text>
+    <svg class="cover-logo" viewBox="0 0 240 108" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Atenas Clínica Estética">
+      <rect x="3" y="3" width="234" height="102" rx="6" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+      <text x="120" y="44" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="32" font-weight="400" fill="#e2c97e" letter-spacing="5">ATENAS</text>
+      <line x1="36" y1="55" x2="204" y2="55" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+      <text x="120" y="76" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="10" font-weight="400" fill="#a09070" letter-spacing="4">CL&#205;NICA EST&#201;TICA</text>
     </svg>
 
     <h1>Atenas<br>Clínica Estética</h1>
@@ -445,19 +453,18 @@
   </div>
 
   <div id="nav" role="tablist">
-    <button class="nav-btn active" data-section="rituais"   role="tab" aria-selected="true">Rituais</button>
-    <button class="nav-btn"        data-section="faciais"   role="tab" aria-selected="false">Faciais</button>
-    <button class="nav-btn"        data-section="corporais" role="tab" aria-selected="false">Corporais</button>
-    <button class="nav-btn"        data-section="capilar"   role="tab" aria-selected="false">Capilar</button>
+    <label for="tab-rituais" class="nav-btn" role="tab">Rituais</label>
+    <label for="tab-faciais" class="nav-btn" role="tab">Faciais</label>
+    <label for="tab-corporais" class="nav-btn" role="tab">Corporais</label>
+    <label for="tab-capilar" class="nav-btn" role="tab">Capilar</label>
   </div>
 
-  <div id="sec-rituais" class="section visible" role="tabpanel">
+  <div id="sec-rituais" class="section">
     <div class="section-header">
       <div class="section-title">Rituais das Deusas</div>
       <div class="section-subtitle">Experiências exclusivas de renovação</div>
     </div>
     <div class="cards-grid">
-
       <div class="ritual-card">
         <div class="ritual-goddess">Ritual Afrodite</div>
         <div class="ritual-name">Afrodite</div>
@@ -471,7 +478,6 @@
           <span class="duration">&#9201; 2 horas</span>
         </div>
       </div>
-
       <div class="ritual-card">
         <div class="ritual-goddess">Ritual Ártemis</div>
         <div class="ritual-name">Ártemis</div>
@@ -485,7 +491,6 @@
           <span class="duration">&#9201; 2h</span>
         </div>
       </div>
-
       <div class="ritual-card">
         <div class="ritual-goddess">Ritual Perséfone</div>
         <div class="ritual-name">Perséfone</div>
@@ -500,7 +505,6 @@
           <span class="duration">&#9201; 2h</span>
         </div>
       </div>
-
       <div class="ritual-card">
         <div class="ritual-goddess">Ritual Athena</div>
         <div class="ritual-name">Athena</div>
@@ -515,7 +519,6 @@
           <span class="duration">&#9201; 3h30</span>
         </div>
       </div>
-
       <div class="ritual-card">
         <div class="ritual-goddess">Ritual Hera</div>
         <div class="ritual-name">Hera</div>
@@ -530,7 +533,6 @@
           <span class="duration">&#9201; 4 horas</span>
         </div>
       </div>
-
       <div class="ritual-card">
         <div class="ritual-goddess">Hidrozonioterapia</div>
         <div class="ritual-name">Banheira Terapêutica</div>
@@ -544,20 +546,18 @@
           <span class="duration">&#9201; 50 min</span>
         </div>
       </div>
-
     </div>
     <div class="cta-wrap">
       <a class="btn-agendar" href="https://wa.me/554195996832">Agendar pelo WhatsApp</a>
     </div>
   </div>
 
-  <div id="sec-faciais" class="section" role="tabpanel">
+  <div id="sec-faciais" class="section">
     <div class="section-header">
       <div class="section-title">Procedimentos Faciais</div>
       <div class="section-subtitle">Cuidado e rejuvenescimento para a sua pele</div>
     </div>
     <div class="cards-grid">
-
       <div class="card">
         <div class="card-name">Limpeza de Pele Personalizada</div>
         <div class="card-desc">Tratamento exclusivo desenvolvido conforme as necessidades únicas da sua pele. Inclui higienização profunda, esfoliação, extração, equilíbrio cutâneo e finalização com ativos específicos.</div>
@@ -566,7 +566,6 @@
           <span class="duration">&#9201; 1h30</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Peeling Químico</div>
         <div class="card-desc">Promove renovação das camadas da pele com ácidos específicos, melhorando textura, manchas, oleosidade e sinais do envelhecimento. Estimula regeneração celular.</div>
@@ -575,7 +574,6 @@
           <span class="badge-outline">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Peeling Mineral do Mar Morto</div>
         <div class="card-desc">Inspirado nas riquezas do Mar Morto, combina ação detox, renovadora e nutritiva. Proporciona equilíbrio, suavidade e uma pele visivelmente mais saudável e iluminada.</div>
@@ -583,7 +581,6 @@
           <span class="badge-outline">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Fotobiomodulação Facial</div>
         <div class="card-desc">Tratamento com luzes LED de diferentes comprimentos de onda para estimular processos naturais, promovendo regeneração, melhora da acne e sinais do envelhecimento.</div>
@@ -592,7 +589,6 @@
           <span class="badge-outline">Indolor</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Criofrequência Facial</div>
         <div class="card-desc">Tecnologia que combina frio e radiofrequência para estimular colágeno, melhorar firmeza e suavizar linhas de expressão. Efeito lifting com conforto e segurança.</div>
@@ -601,7 +597,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Microagulhamento Facial</div>
         <div class="card-desc">Estimula produção de colágeno e elastina. Indicado para manchas, cicatrizes de acne e sinais do envelhecimento. Pele mais firme, uniforme e revitalizada.</div>
@@ -613,7 +608,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Detox Facial</div>
         <div class="card-desc">Cuidado profundo que limpa, purifica e revitaliza a pele, restaurando seu equilíbrio natural e luminosidade. Ideal para peles cansadas, opacas ou expostas à poluição.</div>
@@ -621,7 +615,6 @@
           <div class="price">R$ 140<small>por sessão</small></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Dermaplaning — Pele de Porcelana</div>
         <div class="card-desc">Tratamento delicado e preciso que remove impurezas, células mortas e ativa renovação celular, deixando a pele mais lisa, iluminada e com melhor textura.</div>
@@ -629,7 +622,6 @@
           <div class="price">R$ 140<small>por sessão</small></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Remoção de Verrugas, Pintas e Sinais</div>
         <div class="card-desc">Indicado para retirada de verrugas e pequenas lesões cutâneas benignas. Realizado com técnicas seguras e precisas, respeitando as características da pele.</div>
@@ -638,7 +630,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Preenchedor Facial (Ácido Hialurônico)</div>
         <div class="card-desc">Redefine traços, suaviza marcas e valoriza a beleza individual com elegância e precisão. Indicado para rejuvenescimento com naturalidade e sofisticação.</div>
@@ -646,7 +637,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Toxina Botulínica (Botox)</div>
         <div class="card-desc">Tratamento preciso que reduz marcas de expressão e preserva a naturalidade dos movimentos, promovendo rejuvenescimento sofisticado e harmonioso.</div>
@@ -654,7 +644,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Bioestimuladores de Colágeno</div>
         <div class="card-desc">Estimula a produção natural de colágeno, promovendo firmeza, melhora da flacidez e rejuvenescimento progressivo. Resultados naturais e duradouros.</div>
@@ -662,7 +651,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Tratamento de Manchas Senis</div>
         <div class="card-desc">Protocolo que suaviza manchas do envelhecimento e exposição solar. Atua na renovação celular e clareamento progressivo, devolvendo luminosidade e aspecto saudável.</div>
@@ -670,7 +658,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Skin Booster</div>
         <div class="card-desc">Tratamento avançado que revitaliza a pele em profundidade, devolvendo maciez, luminosidade e aspecto jovem. Ideal para pele radiante e bem cuidada.</div>
@@ -678,7 +665,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Tratamento de Colo e Pescoço</div>
         <div class="card-desc">Protocolo para melhorar firmeza, textura e hidratação do colo e pescoço. Promove estímulo de colágeno, uniformidade da pele e aspecto mais jovem.</div>
@@ -686,20 +672,18 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
     </div>
     <div class="cta-wrap">
       <a class="btn-agendar" href="https://wa.me/554195996832">Agendar pelo WhatsApp</a>
     </div>
   </div>
 
-  <div id="sec-corporais" class="section" role="tabpanel">
+  <div id="sec-corporais" class="section">
     <div class="section-header">
       <div class="section-title">Procedimentos Corporais</div>
       <div class="section-subtitle">Modelagem, bem-estar e revitalização do corpo</div>
     </div>
     <div class="cards-grid">
-
       <div class="card">
         <div class="card-name">Drenagem Linfática Manual</div>
         <div class="card-desc">Indicada para diminuição do inchaço, melhora da circulação, tratamentos de celulite e gordura localizada. Manobras suaves que promovem relaxamento geral.</div>
@@ -713,7 +697,6 @@
           </div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Drenodetox</div>
         <div class="card-desc">Protocolo avançado que combina drenagem linfática com endermoterapia (vácuo) e infravermelho. Promove desintoxicação profunda, elimina líquidos e remodelação corporal.</div>
@@ -727,7 +710,6 @@
           </div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Massagem Relaxante</div>
         <div class="card-desc">Protocolo terapêutico com manobras suaves e contínuas para alívio das tensões musculares, redução do estresse e equilíbrio do corpo e da mente.</div>
@@ -736,7 +718,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Massagem com Pedras Quentes</div>
         <div class="card-desc">Combina manobras relaxantes com pedras vulcânicas aquecidas. O calor penetra nos músculos, proporcionando relaxamento profundo e equilíbrio físico e emocional.</div>
@@ -745,7 +726,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Massagem com Liberação Miofascial</div>
         <div class="card-desc">Combina relaxamento com manobras profundas que atuam na fáscia muscular, promovendo alívio de tensões, dores e melhora da mobilidade corporal.</div>
@@ -753,7 +733,6 @@
           <div class="price">R$ 220<small>por sessão (60 min)</small></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Massagem com Photon Dome</div>
         <div class="card-desc">Técnicas manuais relaxantes aliadas à fototerapia LED/infravermelho. Promove relaxamento profundo, melhora da circulação, redução de dores e estímulo celular.</div>
@@ -761,7 +740,6 @@
           <div class="price">R$ 270<small>por sessão (1h30)</small></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Pump Up — Bumbum na Nuca</div>
         <div class="card-desc">Levanta e modela o bumbum, com melhora da celulite e da flacidez. Pode ser associado com corrente australiana ou radiofrequência — consultar valores.</div>
@@ -770,7 +748,6 @@
           <span class="badge-outline">Consultar pacote</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Pump Up — Protocolos Combinados</div>
         <div class="card-desc">Levanta e modela o bumbum com melhora da celulite e flacidez. Disponível em dois protocolos:</div>
@@ -788,7 +765,6 @@
           <span class="badge-outline">Consultar pacote</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Criolipolise — Redução de Medidas</div>
         <div class="card-desc">Procedimento seguro e não invasivo que remodela o contorno corporal destruindo células de gordura resistentes a dietas. Reduz cerca de 25% da gordura na área tratada.</div>
@@ -797,7 +773,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Criofrequência Corporal</div>
         <div class="card-desc">Indicada para flacidez tecidual. Melhora visivelmente a aparência da pele.</div>
@@ -806,7 +781,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Eletroestimulador — Fortalecimento Muscular</div>
         <div class="card-desc">Promove fortalecimento muscular na área tratada de forma eficaz e segura.</div>
@@ -815,7 +789,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Photon Dome — Detox Corporal</div>
         <div class="card-desc">Tecnologia avançada de calor (sauna seca) e fototerapia com infravermelho. Ativa circulação, auxilia na redução de dores e proporciona revitalização profunda.</div>
@@ -829,7 +802,6 @@
           </div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Radiofotobiomodulação</div>
         <div class="card-desc">Protocolo com radiofrequência, endermoterapia (vácuo), luz LED e infravermelho. Estimula atividade celular, reduz medidas, celulite e melhora os tecidos.</div>
@@ -843,7 +815,6 @@
           </div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Drenodetox com Photon Dome</div>
         <div class="card-desc">Protocolo que associa drenagem linfática com fototerapia LED/infravermelho. Promove desintoxicação profunda, redução de líquidos e melhora do organismo.</div>
@@ -852,7 +823,6 @@
           <span class="badge-outline">Pacotes</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Esfoliação Corporal + Hidratação</div>
         <div class="card-desc">Ritual de renovação que remove células mortas, promove limpeza profunda e devolve maciez e brilho. Finalizado com hidratação intensiva e manobras de drenagem.</div>
@@ -860,7 +830,6 @@
           <div class="price">R$ 185<small>por sessão (45 min)</small></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Hidrozonioterapia</div>
         <div class="card-desc">Banheira terapêutica com água aquecida, ozônio e cromoterapia. Limpeza profunda, desintoxicação e relaxamento intenso com ação antimicrobiana e anti-inflamatória.</div>
@@ -868,7 +837,6 @@
           <div class="price">R$ 180<small>por sessão (30 min)</small></div>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Bioestimuladores Corporais de Colágeno</div>
         <div class="card-desc">Tratamentos injetáveis que estimulam produção natural de colágeno, promovendo firmeza e rejuvenescimento progressivo. Resultados naturais e duradouros. Abdômen e glúteo.</div>
@@ -876,7 +844,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Enzimas Redutoras de Medidas</div>
         <div class="card-desc">Tratamento avançado com ativos aplicados diretamente na região, auxiliando na redução de gordura localizada e melhora do contorno corporal de forma gradual e progressiva.</div>
@@ -884,20 +851,18 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
     </div>
     <div class="cta-wrap">
       <a class="btn-agendar" href="https://wa.me/554195996832">Agendar pelo WhatsApp</a>
     </div>
   </div>
 
-  <div id="sec-capilar" class="section" role="tabpanel">
+  <div id="sec-capilar" class="section">
     <div class="section-header">
       <div class="section-title">Terapia Capilar Avançada</div>
       <div class="section-subtitle">Saúde do couro cabeludo e fortalecimento dos fios</div>
     </div>
     <div class="cards-grid">
-
       <div class="card">
         <div class="card-name">Intradermoterapia Capilar (Mesoterapia)</div>
         <div class="card-desc">Aplicação de ativos diretamente no couro cabeludo, estimulando os folículos e tratando a queda capilar de forma eficaz. Indicado para queda de cabelo, afinamento e alopecia.</div>
@@ -905,7 +870,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Microagulhamento Capilar</div>
         <div class="card-desc">Microperfurações para estimular colágeno e aumentar absorção de ativos no couro cabeludo. Melhora da densidade capilar e estímulo do crescimento.</div>
@@ -913,7 +877,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Ozonioterapia Capilar</div>
         <div class="card-desc">Uso do ozônio medicinal com ação anti-inflamatória, antifúngica e bactericida no couro cabeludo. Ideal para caspa, oleosidade e dermatites.</div>
@@ -921,7 +884,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Alta Frequência</div>
         <div class="card-desc">Equipamento com ação bactericida e fungicida que estimula a circulação no couro cabeludo. Fortalecimento dos fios e melhora da oxigenação.</div>
@@ -929,7 +891,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
       <div class="card">
         <div class="card-name">Fotobiomodulação Capilar</div>
         <div class="card-desc">Terapia com luz LED/infravermelha que estimula a atividade celular e melhora a saúde dos folículos capilares. Regeneração e ação anti-inflamatória.</div>
@@ -937,7 +898,6 @@
           <span class="badge">Avaliação</span>
         </div>
       </div>
-
     </div>
     <div class="cta-wrap">
       <a class="btn-agendar" href="https://wa.me/554195996832">Agendar pelo WhatsApp</a>
@@ -949,76 +909,27 @@
 <script>
 (function () {
   'use strict';
-
-  function showSection(id, btn) {
-    var secs = document.querySelectorAll('.section');
-    var btns = document.querySelectorAll('.nav-btn');
-    var i;
-
-    // Esconde todas as seções
-    for (i = 0; i < secs.length; i++) {
-      secs[i].classList.remove('visible');
-    }
-    
-    // Remove a classe 'active' de todos os botões
-    for (i = 0; i < btns.length; i++) {
-      btns[i].classList.remove('active');
-      btns[i].setAttribute('aria-selected', 'false');
-    }
-
-    // Mostra a seção alvo
-    var target = document.getElementById('sec-' + id);
-    if (target) {
-      target.classList.add('visible');
-    }
-
-    // Ativa o botão clicado
-    if (btn) {
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      
-      // Centraliza o botão no menu de rolagem horizontal
-      setTimeout(function () {
-        try { 
-          btn.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' }); 
-        } catch (e) { 
-          // Silenciosamente ignora se o navegador não suportar
-        }
-      }, 50);
-    }
-
-    // Faz rolagem suave para o topo do menu, com fallback seguro para iOS
-    var nav = document.getElementById('nav');
-    if (nav) {
-      var scrollYPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-      var top = nav.getBoundingClientRect().top + scrollYPos - 6;
-      try { 
-        window.scrollTo({ top: top, behavior: 'smooth' }); 
-      } catch (e) { 
-        window.scrollTo(0, top); 
-      }
-    }
-  }
-
-  function init() {
-    var btns = document.querySelectorAll('.nav-btn');
-    for (var i = 0; i < btns.length; i++) {
-      (function (b) {
-        var sec = b.getAttribute('data-section');
-        
-        // Substituímos os eventos múltiplos por um único evento de clique robusto
-        b.addEventListener('click', function (e) {
-          e.preventDefault();
-          showSection(sec, b);
-        });
-      })(btns[i]);
-    }
-  }
-
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', initScroll);
   } else {
-    init();
+    initScroll();
+  }
+
+  function initScroll() {
+    var labels = document.querySelectorAll('.nav-btn');
+    for (var i = 0; i < labels.length; i++) {
+      labels[i].addEventListener('click', function () {
+        setTimeout(function() {
+          var nav = document.getElementById('nav');
+          if (nav) {
+            var scrollYPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            var top = nav.getBoundingClientRect().top + scrollYPos - 6;
+            try { window.scrollTo({ top: top, behavior: 'smooth' }); } 
+            catch (e) { window.scrollTo(0, top); }
+          }
+        }, 50);
+      });
+    }
   }
 })();
 </script>
