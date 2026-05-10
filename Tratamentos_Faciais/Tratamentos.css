@@ -246,6 +246,7 @@ html {
     flex: 1;
 }
 
+<<<<<<< HEAD
 .card-preco {
     display: flex;
     align-items: baseline;
@@ -324,6 +325,9 @@ html {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(91, 178, 167, 0.25);
 }
+=======
+
+>>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
 
 @media (max-width: 1280px) {
     .cards-tratamentos {
@@ -668,3 +672,41 @@ html {
 
 
 
+<<<<<<< HEAD
+=======
+
+/* Botão Agendar Agora nos cards */
+.container-agendar {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #e8e2d8;
+}
+
+.btn-agendar-agora {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 30px;
+    background-color: #5bb2a7;
+    color: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-agendar-agora:hover {
+    background-color: #4a9e94;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(91, 178, 167, 0.35);
+}
+
+>>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)

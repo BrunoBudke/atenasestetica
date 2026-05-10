@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    :root {
+      --navy: #0d1b35;
+      --navy-mid: #152444;
+      --navy-light: #1e3260;
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-pale: #f5e9c8;
+      --white: #f8f4ec;
+      --text-muted: #a09070;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      touch-action: manipulation;
+    }
+
+    body {
+      background: var(--navy);
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
+    }
+
+    #catalog {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--white);
+      min-height: 100vh;
+      padding-bottom: 2rem;
+    }
+
+    
+    #cover {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      min-height: clamp(350px, 60vh, 520px);
+      padding: 2rem;
+      padding-top: max(2rem, env(safe-area-inset-top));
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    #cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(21,36,68,0.8) 0%, rgba(13,27,53,1) 80%);
+    }
+
+    #cover-logo {
+      width: clamp(100px, 25vw, 130px);
+      height: auto;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(201,168,76,0.2));
+    }
+
+    #cover h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      position: relative;
+      z-index: 1;
+      line-height: 1.1;
+    }
+
+    #cover h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+      margin-top: 0.8rem;
+    }
+
+    .gold-line {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.2rem auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    
+    #nav {
+      display: -webkit-flex;
+      display: flex;
+      gap: 10px;
+      padding: 0.8rem max(1rem, env(safe-area-inset-right)) 0.8rem max(1rem, env(safe-area-inset-left));
+      background: rgba(13, 27, 53, 0.97);
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+    }
+    #nav::-webkit-scrollbar { display: none; }
+
+    .nav-btn {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-family: 'Montserrat', sans-serif;
+      /* iOS: remove default button styles */
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      flex-shrink: 0;
+    }
+
+    .nav-btn.active {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+      box-shadow: 0 4px 12px rgba(201,168,76,0.25);
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTIONS ── */
+    .section { display: none; padding: 0 1rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section.visible { display: block; -webkit-animation: fadeIn 0.4s ease-out; animation: fadeIn 0.4s ease-out; }
+
+    @-webkit-keyframes fadeIn {
+      from { opacity: 0; -webkit-transform: translateY(10px); transform: translateY(10px); }
+      to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; -webkit-transform: translateY(10px); transform: translateY(10px); }
+      to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+    }
+
+    .section-header {
+      padding: 2.5rem 0 1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+    }
+
+    .section-subtitle {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    /* ── GRID E CARDS ── */
+    .cards-grid {
+      display: -ms-grid;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 400px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-transition: transform 0.2s;
+      transition: transform 0.2s;
+      /* Prevent iOS text inflation */
+      -webkit-text-size-adjust: 100%;
+      word-break: break-word;
+    }
+
+    .card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: rgba(248,244,236,0.7);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      gap: 8px;
+    }
+
+    .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .price small {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+    }
+
+    .duration {
+      font-size: 10px;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.05);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    /* ── RITUAIS (DESTAQUE) ── */
+    .ritual-card {
+      background: linear-gradient(145deg, var(--navy-mid) 0%, #0e1a30 100%);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 12px;
+      padding: 1.8rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      word-break: break-word;
+    }
+
+    .ritual-goddess {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .ritual-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .ritual-steps {
+      list-style: none;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .ritual-steps li {
+      font-size: 12px;
+      color: rgba(248,244,236,0.8);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ritual-steps li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 10px;
+    }
+
+    .ritual-footer {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: flex-end;
+      align-items: flex-end;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      gap: 8px;
+    }
+
+    .badge-outline {
+      font-size: 9px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .badge {
+      font-size: 10px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* PACOTES */
+    .package-row {
+      display: -webkit-flex;
+      display: flex;
+      gap: 8px;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .package-tag {
+      font-size: 10px;
+      color: rgba(248,244,236,0.6);
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* ── EXTRA iOS / SMALL SCREEN FIXES ── */
+    @media (max-width: 480px) {
+      #cover { min-height: 280px; padding: 1.5rem 1rem; }
+      #cover h1 { font-size: 1.8rem; }
+      .section { padding: 0 0.75rem 2rem; }
+      .section-header { padding: 1.8rem 0 0.8rem; }
+      .card { padding: 1.2rem; }
+      .ritual-card { padding: 1.3rem; }
+      .cards-grid { gap: 0.9rem; }
+      .card-name { font-size: 1.15rem; }
+      .ritual-name { font-size: 1.5rem; }
+      .price { font-size: 1.1rem; }
+      .nav-btn { padding: 7px 14px; font-size: 10px; }
+    }
+
+    @media (max-width: 375px) {
+      #cover h1 { font-size: 1.6rem; letter-spacing: 0.08em; }
+      .section-title { font-size: 1.4rem; }
+      .cards-grid { gap: 0.75rem; }
+    }
+
+    /* Prevent text overflow on small screens */
+    .card-name, .card-desc, .ritual-name, .ritual-steps li {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
+    #catalog { padding-bottom: max(2rem, env(safe-area-inset-bottom)); }
