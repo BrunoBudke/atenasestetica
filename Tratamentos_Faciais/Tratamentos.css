@@ -246,7 +246,6 @@ html {
     flex: 1;
 }
 
-<<<<<<< HEAD
 .card-preco {
     display: flex;
     align-items: baseline;
@@ -325,9 +324,6 @@ html {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(91, 178, 167, 0.25);
 }
-=======
-
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
 
 @media (max-width: 1280px) {
     .cards-tratamentos {
@@ -670,11 +666,6 @@ html {
     .hero-image                  { padding-top: 72px !important; }
 }
 
-
-
-<<<<<<< HEAD
-=======
-
 /* Botão Agendar Agora nos cards */
 .container-agendar {
     display: flex;
@@ -709,4 +700,5 @@ html {
     box-shadow: 0 6px 18px rgba(91, 178, 167, 0.35);
 }
 
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
+
+

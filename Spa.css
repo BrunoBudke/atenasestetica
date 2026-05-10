@@ -21,14 +21,8 @@ html { scroll-behavior: smooth; }
 .cabecalho {
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
     align-items: center;
     padding: 0 80px;
-=======
-    align-items: flex-start;
-    padding: 0 80px;
-    
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
     background-color: var(--branco);
     position: fixed;
     top: 0;
@@ -103,17 +97,6 @@ html { scroll-behavior: smooth; }
     padding-left: 26px;
 }
 
-<<<<<<< HEAD
-=======
-.catalogo {
-    text-decoration: none;
-    color: var(--cinza);
-    font-size: 14px;
-    transition: color 0.5s;
-}
-.catalogo:hover { color: var(--verde); }
-
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
 .btn-contato {
     background-color: var(--verde);
     color: var(--branco);
@@ -169,11 +152,7 @@ html { scroll-behavior: smooth; }
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-<<<<<<< HEAD
     background-image: url('/Logos/Atenas_vazio.png');
-=======
-    background-image: url('./Logos/Atenas_vazio.png');
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -200,14 +179,9 @@ html { scroll-behavior: smooth; }
 }
 
 .hero-text {
-<<<<<<< HEAD
-    position: relative;
-=======
     position: absolute;
     top: 60%;
     transform: translate(-50%, -50%);
-    margin-top: 100px;
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
     z-index: 2;
     text-align: center;
     color: var(--branco);
@@ -219,11 +193,7 @@ html { scroll-behavior: smooth; }
     display: block;
     text-transform: uppercase;
     letter-spacing: 5px;
-<<<<<<< HEAD
     font-size: 12px;
-=======
-    font-size: 15px;
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
     font-weight: 400;
     color: var(--ouro);
     margin-bottom: 20px;
@@ -944,18 +914,6 @@ html { scroll-behavior: smooth; }
     .dropdown-content a:last-child { border-bottom: none !important; }
 
     
-<<<<<<< HEAD
-=======
-    .catalogo {
-        font-size: 16px !important;
-        padding: 14px 0 !important;
-        border-bottom: 1px solid #f0f0f0 !important;
-        width: 100% !important;
-        display: block !important;
-        color: #333 !important;
-    }
-
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
     .btn-contato {
         display: block !important;
         margin-top: 16px !important;
@@ -966,6 +924,32 @@ html { scroll-behavior: smooth; }
     }
 }
 
+
+/* Botão Catálogo */
+.btn-catalogo {
+    background-color: transparent;
+    color: var(--ouro);
+    border: 1.5px solid var(--ouro);
+    padding: 9px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    margin-left: 10px;
+}
+.btn-catalogo:hover {
+    background-color: var(--ouro);
+    color: var(--branco);
+    transform: translateY(-1px);
+}
+@media (max-width: 900px) {
+    .btn-catalogo { display: none; }
+}
 
 /* Admin*/
 .rodape-simples {
@@ -996,21 +980,12 @@ html { scroll-behavior: smooth; }
 
 
 .logo-img {
-<<<<<<< HEAD
     width: 200px !important;
     height: 80px !important;
     object-fit: contain !important;
 }
 .cabecalho {
     height: 100px !important;
-=======
-    width: 240px !important;
-    height: 95px !important;
-    object-fit: contain !important;
-}
-.cabecalho {
-    height: 110px !important;
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
     padding: 0 60px !important;
     align-items: center !important;
 }
@@ -1037,7 +1012,4 @@ html { scroll-behavior: smooth; }
     .filtros-wrap                { top: 72px !important; }
     .hero-image                  { padding-top: 72px !important; }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)

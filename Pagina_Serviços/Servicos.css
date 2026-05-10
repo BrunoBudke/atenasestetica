@@ -255,7 +255,6 @@ html {
 }
 
 
-<<<<<<< HEAD
 .card-preco {
     display: flex;
     align-items: baseline;
@@ -337,8 +336,6 @@ html {
 }
 
 
-=======
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
 @media (max-width: 1280px) {
     .cards-tratamentos {
         grid-template-columns: repeat(3, 1fr);
@@ -377,7 +374,6 @@ html {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-<<<<<<< HEAD
 .card-pacotes {
     display: flex;
     flex-direction: column;
@@ -393,9 +389,6 @@ html {
     font-weight: 500;
     letter-spacing: 0.3px;
 }
-=======
-
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
 
 .menu-toggle {
     display: none;
@@ -423,10 +416,6 @@ html {
     transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
     transform-origin: center;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)
 .menu-toggle.aberto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .menu-toggle.aberto span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .menu-toggle.aberto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -581,10 +570,8 @@ html {
     .filtros-wrap                { top: 72px !important; }
     .hero-image                  { padding-top: 72px !important; }
 }
-<<<<<<< HEAD
-=======
 
-/* Botão Agendar Agora nos cards */
+/* Botão Agendar */
 .container-agendar {
     display: flex;
     justify-content: center;
@@ -617,5 +604,3 @@ html {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(91, 178, 167, 0.35);
 }
-
->>>>>>> 994b9ce (feat: Atualização dos produtos e catalogo)

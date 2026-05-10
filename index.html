@@ -14,7 +14,9 @@
         <div class="logo-container">
             <div class="logo-placeholder">
                 <img src="./Logos/Atenas_logo_horiz1.png" alt="Logo" class="logo-img">
-     git push origin main
+            </div>
+        </div>
+
         <nav class="navegacao">
     <a href="#" class="nav-link">Home</a>
     <div class="dropdown">
@@ -26,7 +28,7 @@
             <a href="./Tratamentos_Capilares/Capilar.html">Terapias Capilares</a>
         </div>
     </div>
-    <a href="/atenasestetica-main/Catalogo/Catalogo.html" class="catalogo">Catalogo</a>
+    <a href="./Catalogo/Catalogo.html" class="nav-link">Catálogo</a>
     <a href="#videos-spa" class="nav-link">Vídeos</a>
     <a href="#ebook-download" class="nav-link">E-book</a>
     <a href="#contato" class="nav-link">Contato</a>
@@ -37,7 +39,7 @@
 
     <section class="hero-image">
         <div class="hero-overlay"></div>
-        <div class="hero-text">
+        <div class="hero-text" style="padding-top: 120px;">
             <p class="subtitle">O autocuidado é um ritual</p>
             <h1>Sinta a <span class="destaque-script">calma</span><br>em cada detalhe</h1>
         </div>
@@ -123,29 +125,17 @@
                 <div class="contato-item">
                     <h3>Endereço no:</h3>
                     <p>Rua Ceciliano Tavares, 431 – Centro - Matinhos,</p>
-<<<<<<< HEAD
                     <p>Matinhos – PR, 83260-000</p>
-=======
-                    <p>Matinhos – PR, 00000-000</p>
->>>>>>> fda08ab53deb62a539bcd0f07f79f1b06dbf7366
                 </div>
 
                 <div class="contato-item">
                     <h3>Telefones:</h3>
                     <p>(41) 99599 – 6832</p>
-<<<<<<< HEAD
-=======
-                    <p>(55) 00000 – 0000</p>
->>>>>>> fda08ab53deb62a539bcd0f07f79f1b06dbf7366
                 </div>
 
                 <div class="redes-sociais">
                     <a href="https://wa.me/554195996832" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     <a href="/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-<<<<<<< HEAD
-=======
-                    <a href="https://www.facebook.com/athenaspa" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
->>>>>>> fda08ab53deb62a539bcd0f07f79f1b06dbf7366
                 </div>
             </div>
 
@@ -204,12 +194,8 @@ async function acessarAdmin() {
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function(){
-<<<<<<< HEAD
-    emailjs.init('public_key');
-=======
     // Initialize EmailJS — substitua pelo seu Public Key em https://emailjs.com
     emailjs.init('SUA_PUBLIC_KEY_AQUI');
->>>>>>> fda08ab53deb62a539bcd0f07f79f1b06dbf7366
 })();
 
 function mostrarFeedback(msg, tipo) {
@@ -228,26 +214,15 @@ async function enviarFolder(e) {
     const btn   = document.getElementById('btnEbook');
     const texto = document.getElementById('btnEbookTexto');
 
-<<<<<<< HEAD
-    
-    const link = document.createElement('a');
-    link.href = './Catalogo/index.html';
-    link.download = './Catalogo/index.html';
-=======
     // 1. Download imediato no dispositivo
     const link = document.createElement('a');
     link.href = '/Atenas_Folder_A4_2dobras.pdf';
     link.download = 'Atenas_Folder.pdf';
->>>>>>> fda08ab53deb62a539bcd0f07f79f1b06dbf7366
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 
-<<<<<<< HEAD
-    
-=======
     // 2. Envio por e-mail via EmailJS
->>>>>>> fda08ab53deb62a539bcd0f07f79f1b06dbf7366
     btn.disabled = true;
     texto.textContent = 'Enviando...';
 
