@@ -451,7 +451,6 @@
     <button class="nav-btn"        data-section="capilar"   role="tab" aria-selected="false">Capilar</button>
   </div>
 
-  <!-- ══ RITUAIS DAS DEUSAS ══ -->
   <div id="sec-rituais" class="section visible" role="tabpanel">
     <div class="section-header">
       <div class="section-title">Rituais das Deusas</div>
@@ -552,7 +551,6 @@
     </div>
   </div>
 
-  <!-- ══ PROCEDIMENTOS FACIAIS ══ -->
   <div id="sec-faciais" class="section" role="tabpanel">
     <div class="section-header">
       <div class="section-title">Procedimentos Faciais</div>
@@ -695,7 +693,6 @@
     </div>
   </div>
 
-  <!-- ══ PROCEDIMENTOS CORPORAIS ══ -->
   <div id="sec-corporais" class="section" role="tabpanel">
     <div class="section-header">
       <div class="section-title">Procedimentos Corporais</div>
@@ -894,7 +891,6 @@
     </div>
   </div>
 
-  <!-- ══ TERAPIA CAPILAR ══ -->
   <div id="sec-capilar" class="section" role="tabpanel">
     <div class="section-header">
       <div class="section-title">Terapia Capilar Avançada</div>
@@ -951,7 +947,6 @@
 </div>
 
 <script>
-
 (function () {
   'use strict';
 
@@ -960,29 +955,48 @@
     var btns = document.querySelectorAll('.nav-btn');
     var i;
 
-    for (i = 0; i < secs.length; i++) secs[i].classList.remove('visible');
+    // Esconde todas as seções
+    for (i = 0; i < secs.length; i++) {
+      secs[i].classList.remove('visible');
+    }
+    
+    // Remove a classe 'active' de todos os botões
     for (i = 0; i < btns.length; i++) {
       btns[i].classList.remove('active');
       btns[i].setAttribute('aria-selected', 'false');
     }
 
+    // Mostra a seção alvo
     var target = document.getElementById('sec-' + id);
-    if (target) target.classList.add('visible');
+    if (target) {
+      target.classList.add('visible');
+    }
 
+    // Ativa o botão clicado
     if (btn) {
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
+      
+      // Centraliza o botão no menu de rolagem horizontal
       setTimeout(function () {
-        try { btn.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' }); }
-        catch (e) { btn.scrollIntoView(false); }
-      }, 40);
+        try { 
+          btn.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' }); 
+        } catch (e) { 
+          // Silenciosamente ignora se o navegador não suportar
+        }
+      }, 50);
     }
 
+    // Faz rolagem suave para o topo do menu, com fallback seguro para iOS
     var nav = document.getElementById('nav');
     if (nav) {
-      var top = nav.getBoundingClientRect().top + window.pageYOffset - 6;
-      try { window.scrollTo({ top: top, behavior: 'smooth' }); }
-      catch (e) { window.scrollTo(0, top); }
+      var scrollYPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+      var top = nav.getBoundingClientRect().top + scrollYPos - 6;
+      try { 
+        window.scrollTo({ top: top, behavior: 'smooth' }); 
+      } catch (e) { 
+        window.scrollTo(0, top); 
+      }
     }
   }
 
@@ -991,11 +1005,10 @@
     for (var i = 0; i < btns.length; i++) {
       (function (b) {
         var sec = b.getAttribute('data-section');
-        b.addEventListener('touchstart', function (e) {
-          e.stopPropagation();
-          showSection(sec, b);
-        }, { passive: true });
-        b.addEventListener('click', function () {
+        
+        // Substituímos os eventos múltiplos por um único evento de clique robusto
+        b.addEventListener('click', function (e) {
+          e.preventDefault();
           showSection(sec, b);
         });
       })(btns[i]);
