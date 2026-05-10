@@ -939,14 +939,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var btns = document.querySelectorAll('.nav-btn');
   btns.forEach(function(btn) {
     var section = btn.getAttribute('data-section');
-
-    // touchstart: resposta imediata no iOS (sem delay de 300ms)
+  
     btn.addEventListener('touchstart', function(e) {
       e.stopPropagation();
       showSection(section, btn);
     }, { passive: true });
 
-    // click: fallback para desktop e outros navegadores
+    
     btn.addEventListener('click', function(e) {
       showSection(section, btn);
     });
