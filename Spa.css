@@ -342,6 +342,43 @@ html { scroll-behavior: smooth; }
     border-top: 1px solid #f0f0f0;
 }
 
+/* E-BOOK — descrição aprimorada */
+.ebook-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--lavanda);
+    font-weight: 600;
+    margin-bottom: 10px !important;
+}
+
+.ebook-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.75;
+    margin-bottom: 18px !important;
+}
+
+.ebook-acesso {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--ouro);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    margin-top: 4px !important;
+}
+
+.acesso-icone {
+    font-size: 10px;
+    opacity: 0.85;
+}
+
 /* E-BOOK*/
 .secao-ebook {
     background: linear-gradient(135deg, var(--escuro) 0%, #3d5166 100%);
@@ -384,7 +421,7 @@ html { scroll-behavior: smooth; }
     display: block;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 11px;
+    font-size: 10px;
     color: var(--ouro);
     margin-bottom: 16px;
     font-weight: 500;
@@ -925,7 +962,7 @@ html { scroll-behavior: smooth; }
 }
 
 
-/* Botão Catálogo */
+/* Botão Catalogo */
 .btn-catalogo {
     background-color: transparent;
     color: var(--ouro);
