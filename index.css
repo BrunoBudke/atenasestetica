@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(22, 71, 157, 0.08);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #16479d;
+}
+
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+
+.nav-links a {
+  text-decoration: none;
+  color: #16479d;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover { opacity: 0.7; }
+
+.btn-register {
+  background: #16479d;
+  color: #fff !important;
+  padding: 0.5rem 1.3rem;
+  border-radius: 50px;
+}
+
+.btn-register:hover { background: #0f3278; opacity: 1 !important; }
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.hero-content { flex: 1; max-width: 520px; }
+
+.badge {
+  display: inline-block;
+  background: #e8f0fe;
+  color: #16479d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1a1a2e;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 span { color: #16479d; }
+
+.hero-content p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn-primary {
+  background: #16479d;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(22, 71, 157, 0.3);
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(22, 71, 157, 0.4); }
+
+.btn-secondary {
+  background: #fff;
+  color: #16479d;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1rem;
+  border: 2px solid #16479d;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover { background: #f0f4ff; }
+
+.hero-visual { flex: 1; display: flex; gap: 1.2rem; justify-content: center; align-items: flex-start; }
+
+.pet-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(22, 71, 157, 0.10);
+  width: 160px;
+  transition: transform 0.2s;
+}
+
+.pet-card:hover { transform: translateY(-6px); }
+.pet-card--offset { margin-top: 2.5rem; }
+.pet-emoji { font-size: 3.5rem; margin-bottom: 0.7rem; }
+.pet-name { font-size: 1.1rem; font-weight: 800; color: #1a1a2e; margin-bottom: 0.3rem; }
+.pet-info { font-size: 0.78rem; color: #888; margin-bottom: 0.8rem; }
+.pet-tag {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.8rem;
+  border-radius: 50px;
+}
+
+/* Autenticação re registro*/
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+}
+
+.auth-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 4rem;
+  max-width: 480px;
+  background: #fff;
+}
+
+.auth-logo {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #16479d;
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  display: inline-block;
+}
+
+.auth-card h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1a1a2e;
+  margin-bottom: 0.4rem;
+}
+
+.auth-subtitle { color: #888; font-size: 0.95rem; margin-bottom: 2rem; }
+
+.auth-form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.form-group label { font-size: 0.85rem; font-weight: 700; color: #444; }
+
+.form-group input {
+  padding: 0.8rem 1rem;
+  border: 2px solid #e8edf5;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: 'Nunito', sans-serif;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus { border-color: #16479d; }
+.form-group input::placeholder { color: #bbb; }
+
+.btn-submit {
+  margin-top: 0.5rem;
+  background: #16479d;
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(22, 71, 157, 0.25);
+}
+
+.btn-submit:hover { background: #0f3278; transform: translateY(-2px); }
+
+.auth-footer { margin-top: 1.5rem; font-size: 0.9rem; color: #888; text-align: center; }
+
+.auth-footer a { color: #16479d; font-weight: 800; text-decoration: none; }
+.auth-footer a:hover { text-decoration: underline; }
+
+.auth-visual {
+  flex: 1;
+  background: linear-gradient(135deg, #16479d 0%, #2563eb 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 3rem;
+}
+
+.auth-emoji {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.auth-visual h2 { font-size: 2rem; font-weight: 900; margin-bottom: 0.6rem; }
+.auth-visual p { font-size: 1rem; opacity: 0.8; }
+
+@media (max-width: 768px) {
+  .hero { flex-direction: column; padding: 3rem 1.5rem; }
+  .hero-content h1 { font-size: 2.2rem; }
+  .navbar { padding: 1rem 1.5rem; }
+  .auth-container { flex-direction: column; }
+  .auth-card { max-width: 100%; padding: 2rem 1.5rem; }
+  .auth-visual { padding: 2.5rem 1.5rem; }
+}
